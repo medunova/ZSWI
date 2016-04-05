@@ -1,0 +1,6 @@
+1    Prvni kategorie
+2    Druha kategorie
+3    Treti kategorie
+4    Ctvrta kategorie
+5    Pata kategorie
+6    Sesta kategorie
