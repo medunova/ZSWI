@@ -1,5 +1,3 @@
-package application;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -17,21 +15,21 @@ import javafx.stage.Stage;
 public class Aplikace  extends Application{
 
 	private static Scanner sc;
-	
+
 	public void start(Stage primaryStage){
-		try{		
+		try{
 			sc = new Scanner(new File("kategorie.txt"));									//naètení kategorií
 			ArrayList<Kategorie> kategorie = new ArrayList<Kategorie>();
-		
+
 			while(sc.hasNextLine()){
 				int id = sc.nextInt();
 				String nazev = sc.nextLine();
 				kategorie.add(new Kategorie(id, nazev));
 			}
-		
+
 			sc = new Scanner(new File("otazky.txt"));										//naètení otázek
 			ArrayList<Otazka> otazky = new ArrayList<Otazka>();
-		
+
 			while(sc.hasNextLine()){
 				int id = sc.nextInt();
 				int pocetBodu = sc.nextInt();
@@ -40,7 +38,7 @@ public class Aplikace  extends Application{
 				String nazev = sc.nextLine();
 				otazky.add(new Otazka(id, nazev, pocetBodu, misto, idKategorie));
 			}
-		
+
 			new HlavniOkno(kategorie, otazky);
 		}
 		catch (FileNotFoundException e){
@@ -59,9 +57,9 @@ public class Aplikace  extends Application{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args){
 		launch(args);
 	}
-	
+
 }

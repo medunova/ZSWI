@@ -1,5 +1,3 @@
-package application;
-
 import java.util.ArrayList;
 
 import javafx.geometry.Insets;
@@ -33,23 +31,23 @@ public class OknoPridejOtazku extends Stage {
 	private int misto;								//velikost místa
 	private int idKategorie;						//id kategorie
 	private boolean pridanaOtazka = false;			//zda byla zadaná nová otázka
-	
+
 	/**
 	 * Konstruktor okna pro pøidání nové otázky
 	 * @param kategorie seznam kategorií
 	 */
 	public OknoPridejOtazku(ArrayList<Kategorie> kategorie){
-		super();		
+		super();
 		this.kategorie = kategorie;
 		bPane = new BorderPane();
 		bPane.setCenter(getCenterPane());
 		bPane.setBottom(getBottomPane());
-		
+
 		Scene scene = new Scene(bPane, 500, 280);
 		this.setScene(scene);
 		this.setTitle("Pøidej otázku");
 	}
-	
+
 	/**
 	 * Nastavení søedního panelu
 	 * @return horizontální box (tøída HBox)
@@ -60,25 +58,25 @@ public class OknoPridejOtazku extends Stage {
 		Label lblMisto = new Label("Potøebné místo: ");
 		Label lblKategorie = new Label("Kategorie: ");
 		lblPopis.setPadding(new Insets(10,10,65,10));
-		
+
 		taPopis = new TextArea();
 		taPopis.setPrefSize(350, 100);
 		tfPocetBodu = new TextField();
 		tfMisto = new TextField();
 		cbKategorie = new ComboBox();
 		cbKategorie.getItems().addAll(kategorie);
-		
+
 		VBox box1 = new VBox(lblPopis, lblPocetBodu, lblMisto, lblKategorie);
 		VBox box2 = new VBox(taPopis, tfPocetBodu, tfMisto, cbKategorie);
 		box1.setSpacing(20);
 		box2.setSpacing(10);
-				
+
 		HBox box = new HBox(box1, box2);
 		box.setPadding(new Insets(10));
-		
+
 		return box;
 	}
-	
+
 	/**
 	 * Nastavení spodního panelu
 	 * @return vertikální box (tøída VBox)
@@ -90,14 +88,14 @@ public class OknoPridejOtazku extends Stage {
 		pridej.setOnAction(event -> {
 			pridejOtazku();
 		});
-		
+
 		box.getChildren().add(pridej);
 		box.setPadding(new Insets(10));
 		box.setAlignment(Pos.BOTTOM_RIGHT);
-		
+
 		return box;
 	}
-	
+
 	/**
 	 * Nastaví atributy zadanými hodnotami
 	 */
@@ -109,7 +107,7 @@ public class OknoPridejOtazku extends Stage {
 		pridanaOtazka = true;
 		this.close();
 	}
-	
+
 	/**
 	 * Vrací text otázky
 	 * @return text otázky
@@ -117,7 +115,7 @@ public class OknoPridejOtazku extends Stage {
 	public String getPopis(){
 		return this.popis;
 	}
-	
+
 	/**
 	 * Vrací poèet bodù
 	 * @return poèet bodù
@@ -125,7 +123,7 @@ public class OknoPridejOtazku extends Stage {
 	public int getPocetBodu(){
 		return this.pocetBodu;
 	}
-	
+
 	/**
 	 * Vrací velikost místa
 	 * @return velikost místa
@@ -133,7 +131,7 @@ public class OknoPridejOtazku extends Stage {
 	public int getMisto(){
 		return this.misto;
 	}
-	
+
 	/**
 	 * Vrací id kategorie
 	 * @return id kategorie
@@ -141,7 +139,7 @@ public class OknoPridejOtazku extends Stage {
 	public int getIdKategorie(){
 		return this.idKategorie;
 	}
-	
+
 	/**
 	 * Vrací zda byla zadána otázka
 	 * @return true pokud byly zadány hodnoty

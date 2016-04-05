@@ -1,5 +1,3 @@
-package application;
-
 /**
  * Tøída pro otázku
  * @author Aneta Medunová, Tomáš Zobaè, Michal Všelko
@@ -7,7 +5,7 @@ package application;
  */
 public class Otazka {
 
-	
+
 	private int id;					//jednoznaèný identifikátor otázky
 	private String otazka;			//text otázky
 	private int pocetBodu;			//poèet možných bodù
@@ -29,7 +27,7 @@ public class Otazka {
 		this.misto = misto;
 		this.idKategorie = idKategorie;
 	}
-	
+
 	/**
 	 * Vrací id otázky
 	 * @return id
@@ -37,7 +35,7 @@ public class Otazka {
 	public int getId(){
 		return this.id;
 	}
-	
+
 	/**
 	 * Vrací text otázky
 	 * @return text otázky
@@ -45,7 +43,7 @@ public class Otazka {
 	public String getOtazka(){
 		return this.otazka;
 	}
-	
+
 	/**
 	 * Vrací poèet bodù za správnou odpovìï
 	 * @return poèet bodù
@@ -53,7 +51,7 @@ public class Otazka {
 	public int getPocetBodu(){
 		return this.pocetBodu;
 	}
-	
+
 	/**
 	 * Vrací velikost místa
 	 * @return velikost místa
@@ -61,7 +59,7 @@ public class Otazka {
 	public int getMisto(){
 		return this.misto;
 	}
-	
+
 	/**
 	 * Vrací id kategorie
 	 * @return identifikátor kategorie
@@ -69,7 +67,7 @@ public class Otazka {
 	public int getIdKategorie(){
 		return this.idKategorie;
 	}
-	
+
 	/**
 	 * Nastaví text otázky
 	 * @param otazka nový text otázky
@@ -77,7 +75,7 @@ public class Otazka {
 	public void setOtazka(String otazka){
 		this.otazka = otazka;
 	}
-	
+
 	/**
 	 * Nastaví poèet bodù
 	 * @param pocetBodu nový poèet bodù
@@ -85,7 +83,7 @@ public class Otazka {
 	public void setPocetBodu(int pocetBodu){
 		this.pocetBodu = pocetBodu;
 	}
-	
+
 	/**
 	 * Nastaví velikost otázky
 	 * @param misto nová velikost otázky
@@ -93,7 +91,7 @@ public class Otazka {
 	public void setMisto(int misto){
 		this.misto = misto;
 	}
-	
+
 	/**
 	 * Nastaví novou kategorii otázky
 	 * @param idKategorie nové id kategorie
