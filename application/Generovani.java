@@ -2,20 +2,12 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import org.apache.pdfbox.exceptions.COSVisitorException;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.edit.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDFont;
-import org.apache.pdfbox.pdmodel.font.PDTrueTypeFont;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.util.PDFTextStripper;
+import java.util.Random;
 
 import javafx.scene.control.ToggleButton;
 /**
- * Tøída pro vygenerovani testu
- * @author Aneta Medunová, Tomáš Zobaè, Michal Všelko
+ * TÃ¸Ã­da pro vygenerovani testu
+ * @author Aneta MedunovÃ¡, TomÃ¡Å¡ ZobaÃ¨, Michal VÅ¡elko
  *
  */
 public class Generovani {
@@ -33,19 +25,23 @@ public class Generovani {
 	private BufferedWriter writer;
 	private ArrayList<Otazka> otazky;
 	private ArrayList<Kategorie> kategorie;
+	private Random rnd;
 
 
 	public Generovani(ArrayList<Kategorie> kategorie, ArrayList<Otazka> otazky,
 			ToggleButton pocetB, ToggleButton pocetO, String skola, String zkous,
-			String pocet, String datum) throws IOException {
+			String pocet, String idTest, String datum) throws IOException {
 		this.otazky = otazky;
 		this.kategorie = kategorie;
+		rnd = new Random();
 
 		int x = Integer.parseInt(pocet);
 		writer = new BufferedWriter(new FileWriter("Test.txt", false));
-		writer.write("Škola: " + skola + ", ");
-		writer.write("Zkoušející: " + zkous + ", ");
-		writer.write("Dnešní datum je : " + datum);
+		writer.write("Å kola: " + skola + ", ");
+		writer.write("ZkouÅ¡ejÃ­cÃ­: " + zkous + ", ");
+		writer.newLine();
+		writer.write(idTest + ", ");
+		writer.write("Datum testu : " + datum);
 		writer.newLine();
 
 		if(pocetO.isSelected() == true) {
@@ -54,7 +50,7 @@ public class Generovani {
 			for (int i = 0; i<x;i++) {
 				writer.write(otazky.get(vyber).getOtazka()); //vybere otazku a vytiskne
 				writer.newLine();
-				vyber =(vyber + 11)%100; //zvoli jiny index
+				vyber = rnd.nextInt(otazky.size()); //zvoli jiny index
 				//vytvorPDF();
 				}
 			}
@@ -68,7 +64,8 @@ public class Generovani {
 				body = body + otazky.get(vyber).getPocetBodu(); //pricte pocet bodu otazky
 				if (body < x) {
 					writer.write(otazky.get(vyber).getOtazka()); // vytiskne otazku
-					vyber = (vyber + 7)%100; //zvoli jiny index
+					writer.newLine();
+					vyber = rnd.nextInt(otazky.size()); //zvoli jiny index
 					pokracovat = true; //rika aby cyklus pokracoval
 				}
 				else if (body > x) {
@@ -78,6 +75,7 @@ public class Generovani {
 				}
 				else if (body == x) {
 					writer.write(otazky.get(vyber).getOtazka()); // vytiskne otazku
+					writer.newLine();
 					pokracovat = false; //ukonci cyklus
 				}
 			}
@@ -85,36 +83,7 @@ public class Generovani {
 		writer.close();
 	}
 
-	private void vytvorPDF() {
-		try {
-		// Create a document and add a page to it
-		PDDocument document = new PDDocument();
-		PDPage page = new PDPage();
-		document.addPage( page );
+	/**private void vytvorPDF() {
 
-		// Create a new font object selecting one of the PDF base fonts
-		PDFont font = PDTrueTypeFont.loadTTF(document, "Arial.ttf");
-
-		// Start a new content stream which will "hold" the to be created content
-		PDPageContentStream contentStream = new PDPageContentStream(document, page);
-
-		// Define a text content stream using the selected font, moving the cursor and drawing the text "Hello World"
-		contentStream.beginText();
-		contentStream.setFont( font, 12 );
-		contentStream.moveTextPositionByAmount( 100, 700 );
-		contentStream.drawString( "Štastný" );
-		contentStream.endText();
-
-		// Make sure that the content stream is closed:
-		contentStream.close();
-
-		// Save the results and ensure that the document is properly closed:
-		document.save( "Hello World.pdf");
-		document.close();
-		}
-		catch(Exception e) {
-			System.out.println("Nekde se stala chyba");
-		}
-
-	}
+	}*/
 }

@@ -28,6 +28,7 @@ public class oknoExportuj extends Stage {
 	private ArrayList<Kategorie> kategorie;
 	private static Scanner sc;
 	private FileWriter writer;
+	private Label done;
 
 	public oknoExportuj(ArrayList<Kategorie> kategorie, ArrayList<Otazka> otazky) {
 		this.kategorie = kategorie;
@@ -65,7 +66,7 @@ public class oknoExportuj extends Stage {
 		Label text3 = new Label("ID testu: " + '\t' + idTestu);
 		text3.setId("text3");
 		datum = new TextField();
-		Label text4 = new Label('\t' + "Dnešní datum: ");
+		Label text4 = new Label('\t' + "Datum testu: ");
 		text4.setId("text4");
 
 
@@ -110,14 +111,15 @@ public class oknoExportuj extends Stage {
 		return vbox;
 	}
 
-	private HBox tlacitka() {
-		HBox hbox = new HBox();
+	private VBox tlacitka() {
+		VBox hbox = new VBox(5);
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(5,5,20,5));
 		tisk = vytiskni();
 		tisk.setId("tisk");
+		done = new Label("");
 
-		hbox.getChildren().addAll(tisk);
+		hbox.getChildren().addAll(tisk, done);
 
 		return hbox;
 	}
@@ -126,12 +128,10 @@ public class oknoExportuj extends Stage {
 		Button bt = new Button("Vytvoø test");
 		bt.setOnAction((ActionEvent e) -> {
 			if(PBody.isSelected() == true) {
-
-				System.out.println("Test byl vytvoøen");
 				try {
 					new Generovani(kategorie, otazky,PBody,POtazky,
 							institut.getText(),zkousejici.getText(),pocty.getText(),
-							datum.getText());
+							idTestu(), datum.getText());
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -144,12 +144,13 @@ public class oknoExportuj extends Stage {
 				try {
 					new Generovani(kategorie, otazky,PBody,POtazky,
 							institut.getText(),zkousejici.getText(),pocty.getText(),
-							datum.getText());
+							idTestu(), datum.getText());
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
+			done.setText(" Test byl vytvoren");
 		});
 
 		return bt;
