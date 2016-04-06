@@ -1,0 +1,12 @@
+Škola: , Zkoušející: , 
+ZSWI2016045, Datum testu : 
+               Vysvìtlete pojmy systémové a funkèní požadavky.
+               Vysvìtlete pojmy asociace, spojení, závislost.
+               Jaké je základní pravidlo pøi øešení problémù servisu informaèních systémù?
+               Popište základní princip návrhového vzoru Dekorátor (Decorator). Nakreslete pøíkladový obrázek – UML diagram struktury vzoru.
+               Popište smysl pyramidy kultury a význam jejích jednotlivých pater (základní obrázek budete mít k dispozici)
+               Vysvìtlete základní princip a použití UML diagramu pøípadù užití. Nakreslete pøíkladový obrázek.
+               Vysvìtlete pojem vize a popište význam uvedení vize a stanovení rozsahu v dokumentu specifikace požadavkù.
+               Popište základní princip návrhového vzoru Abstraktní továrna. Nakreslete pøíkladový obrázek – UML diagram struktury vzoru.
+               Popište základní principy, na kterých jsou založeny návrhové vzory.
+               Jak byste otestovali cyklus s podmínkou na zaèátku?
