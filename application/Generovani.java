@@ -23,6 +23,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -141,15 +142,26 @@ public class Generovani {
         PdfWriter.getInstance(document, new FileOutputStream(pdfNazev));	//vytvoreni PDF
 
         document.open();	//otevre souboru
+
+        //Pridani ceskeho fontu
+        BaseFont bfArial = BaseFont.createFont
+        		(
+        		"c:\\windows\\fonts\\arial.ttf",
+        		BaseFont.IDENTITY_H,
+        		BaseFont.EMBEDDED
+        		);
+
+
+
         document.addTitle("Vygenerovany test");	//nastavi titulek dokumentu
 
-        Font hlavickaFont = new Font(FontFamily.TIMES_ROMAN, 14.0f, Font.NORMAL, BaseColor.BLACK); //nastaveni pisma hlavicky
+        Font hlavickaFont = new Font(bfArial, 14.0f, Font.NORMAL, BaseColor.BLACK); //nastaveni pisma hlavicky
 
         //Vypise hlavicku
         Chunk rozmisteni = new Chunk(new VerticalPositionMark());
         Paragraph hlavicka = new Paragraph("Škola: "+skola,hlavickaFont);
         hlavicka.add(new Chunk(rozmisteni));
-        hlavicka.add("Pøedmet: ");
+        hlavicka.add("Pøedmìt: ");
         hlavicka.add(new Chunk(rozmisteni));
         hlavicka.add("Pøíjmení a jméno: ....................");
         document.add(hlavicka);
@@ -171,7 +183,7 @@ public class Generovani {
         //Vypis otazek
         int i = 0;
         Paragraph otazkaTisk;
-        Font otazkyFont = new Font(FontFamily.TIMES_ROMAN, 12.0f, Font.NORMAL, BaseColor.BLACK); //nastaveni pisma otazek
+        Font otazkyFont = new Font(bfArial, 11.0f, Font.NORMAL, BaseColor.BLACK); //nastaveni pisma otazek
 
         while(i < vybraneOtazky.size()){	//cyklus projde seznam vybranych otazek a vytiskne je do pdf
 
