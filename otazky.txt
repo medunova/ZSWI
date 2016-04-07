@@ -1,100 +1,100 @@
-1 1 2 1   Popište smysl pyramidy vitality a vıznam jejích jednotlivıch pater (základní obrázek budete mít k dispozici)
-2 2 2 1   Popište smysl Maslowovy pyramidy potøeb a vıznam jejích jednotlivıch pater (základní obrázek budete mít k dispozici)
-3 1 2 3   Popište a vysvìtlete základní schéma zajišování efektivity: Procesy-> Zdroje-> Struktury
-4 3 3 2   Popište a vysvìtlete princip dvou nezbytnıch podmínek stability: cyklického øízení a podpory lidí
-5 1 2 3   Popište a vysvìtlete princip dvou nezbytnıch podmínek dynamiky: proaktivního cyklického øízení a aktivity lidí
-6 1 1 3   Popište vıznam, dùleitost a monost zmìny následujících lidskıch zdrojù: vlastností, schopností a postojù
-7 1 2 3   Popište smysl pyramidy kultury a vıznam jejích jednotlivıch pater (základní obrázek budete mít k dispozici)
-8 2 3 1   Popište princip soutìivého vztahového chování; jakım zpùsobem dokáete soutì vyvolat, èi naopak potlaèit
-9 2 1 2   Popište princip spolupráce; jakım zpùsobem dokáete spolupráci podpoøit
-10 1 2 3   Proè se zabıváme poadavky na software? Pro koho jsou sesbírané a zdokumentované poadavky na software uiteèné?
-11 2 1 4   Vysvìtlete pojmy podnikatelské a uivatelské poadavky.
-12 4 1 2   Vysvìtlete pojmy systémové a funkèní poadavky.
-13 3 1 2   Vysvìtlete pojmy podnikatelská pravidla a parametrické (mimofunkèní) poadavky.
-14 1 2 1   Vysvìtlete vıznam podpisu dokumentu specifikace poadavkù.
-15 1 1 1   Uveïte alespoò tøi dobré zvyky, které jste pouili pøi psaní specifikace poadavkù bìhem vašeho tımového projektu. Vysvìtlete vıznam tìchto dobrıch zvykù.
-16 2 2 1   Vysvìtlete pojem vize a popište vıznam uvedení vize a stanovení rozsahu v dokumentu specifikace poadavkù.
-17 3 4 2   Vysvìtlete princip a pouití kontextového diagramu a diagramu pøípadu uití v rámci specifikace poadavkù. Nakreslete jednoduché pøíkladové obrázky.
-18 3 4 2   Roztøiïte následující poadavky (uveïte typ poadavku)%n	a. Potøebuji nastavit parametry zaøízení%n	b. Chceme sníit náklady na údrbu systému o 30.%n	c. Slovník lze abecednì setøídit (A-, -A).%n	d. Kadı vırobek má jedineènı èárovı kód.%n	e. Uivatel si vybere, jestli bude vyplòovat tuzemskı nebo zahranièní cestovní pøíkaz.\n	f. Systém musí bıt dostupnı alespoò v 99,0 v pracovní dny mezi šestou hodinou ranní a ètvrtou hodinou odpolední.%n	g. Systém musí bıt implementován v programovacím jazyce Java.
-19 2 2 3   Jakım zpùsobem získáte poadavky od uivatelù systému? Uveïte základní praktiky.
-20 1 2 3   Najdìte problémy v následujícím zadání poadavku a opravte ho: „Editor by mìl okamitì zobrazit/schovat všechny formátovací znaèky.“
-21 2 3 1   Popište smysl a náplò ètyø základních aktivit pøi vıvoji sw: specifikace, vıvoj, validace, evoluce.
-22 4 2 3   Popište vodopádovı model vıvoje sw, uveïte jeho vıhody a nevıhody.
-23 1 3 2   Popište modely vıvoje sw: vızkumník (evoluèní prototypování) a prototyp (throw-away prototypování), uveïte vhodnou oblast jejich pouití.
-24 4 2 1   Vysvìtlete základní principy iteraèního a inkrementálního modelu vıvoje sw.
-25 1 2 1   Popište základní principy, fáze a aktivity metodiky Rational Unified Proces (RUP).
-26 4 5 6   Vysvìtlete zásadní rozdíly mezi agilním pøístupem k vıvoji sw a vodopádovım modelem.
-27 6 2 1   Jak byste prakticky postupovali pøi zavádìní modelu vıvoje sw?
-28 1 2 3   Co je to projekt? Jakı je rozdíl mezi projektem a procesem?
-29 4 2 3   Co znamená trojí (ètvero) omezení projektu?
-30 4 5 2   Vysvìtlete pojmy Ganttùv diagram a struktura rozpisu prací (WBS). Uveïte ilustraèní pøíklady.
-31 3 2 5   Co je to konfiguraèní management a k èemu je dobrı?
-32 2 3 4   Popište princip práce s repository (SVN nebo GIT).
-33 4 2 5   Co je to UML a k èemu ho pouiji?.
-34 5 2 4   Vysvìtlete základní princip a pouití UML diagramu pøípadù uití. Nakreslete pøíkladovı obrázek.
-35 4 2 5   Vysvìtlete základní princip a pouití UML diagramu tøíd. Nakreslete pøíkladovı obrázek.
-36 5 5 5   Vysvìtlete základní princip a pouití UML stavového diagramu. Nakreslete pøíkladovı obrázek.
-37 4 2 5   Vysvìtlete základní princip a pouití UML sekvenèního diagramu. Nakreslete pøíkladovı obrázek.
-38 5 4 2   Vysvìtlete základní princip a pouití UML diagramu aktivit. Nakreslete pøíkladovı obrázek.
-39 4 4 5   Vysvìtlete základní princip a pouití alespoò jednoho z následujících UML diagramù: diagram spolupráce, objektovı diagram. Nakreslete pøíkladovı obrázek.
-40 4 4 4   Vysvìtlete základní princip a pouití alespoò jednoho z následujících UML diagramù: diagram nasazení, diagram komponent. Nakreslete pøíkladovı obrázek.
-41 2 4 1   Vysvìtlete pojem analytickı model, popište, jak vypadá analytická tøída
-42 4 5 2   Popište principy metod hledání analytickıch tøíd (podstatná jména, slovesa, CRC karty, typické zdroje)
-43 1 2 1   Vysvìtlete pojmy asociace, spojení, závislost.
-44 4 5 6   Vysvìtlete pojmy asociace, agregace, kompozice.
-45 6 4 5   Vysvìtlete pojem realizace pøípadu uití, co podstatného zahrnuje.
-46 4 5 2   Vysvìtlete rozdíl a návaznost mezi analızou a návrhem softwaru.
-47 4 5 6   Vysvìtlete pojem rozhraní, jak rozhodnete ve fázi návrhu o vhodnosti existence rozhraní.
-48 4 4 5   Vysvìtlete rozdíl mezi objektovì orientovanou analızou (návrhem) a strukturovanou analızou (designem), na základì èeho byste rozhodovali, kdy kterou pouít.
-49 5 6 4   Vysvìtlete pojmy diagram datovıch tokù (DFD) a model kontextu systému (nakreslete obrázek).
-50 4 4 5   Vysvìtlete rozdíly mezi klasickou DeMarcovo metodologií a Yourdonovou "moderní strukturovaná analızou".
-51 6 2 4   Vysvìtlete pojmy centrální transformace a strukturogram. Nakreslete pøíkladovı obrázek.
-52 4 4 2   Zhodnote vıznam návrhu architektury sw systému pro úspìšnost vısledného sw systému, popište, jak budete principiálnì postupovat pøi návrhu architektury.
-53 4 5 6   Vysvìtlete rozdíly mezi dvìma základními vztahy mezi podsystémy (klient-poskytovatel, peer-to-peer).
-54 4 4 5   Vysvìtlete pojmy vrstva a oddíl, uveïte pøíklad vrstvené architektury.
-55 2 3 5   Popište rozdíl mezi uzavøenou a otevøenou vrstvenou architekturou.
-56 4 4 6   Na základì èeho rozhodnete, jestli zrealizujete podsystém jako hardware nebo software?
-57 3 2 6   Srovnejte souborová a databázová datová úloištì, jakım zpùsobem byste se rozhodovali pro pouití souboru, nebo databáze?
-58 2 3 5   Vysvìtlete pojmy systém øízenı procedurálnì, systém øízenı událostmi, paralelní systém.
-59 2 3 4   Vysvìtlete pojem architektonickı styl, jakı architektonickı styl jste pouili ve vašem projektu?
-60 4 2 3   Popište architektonické styly dataflow, aktivní a pasivní datové úloištì.
-61 1 1 4   Popište a vysvìtlete princip tøívrstvé architektury.
-62 4 2 3   Popište a vysvìtlete princip architektury MVC. Nakreslete pøíkladovı obrázek.
-63 4 4 6   Vysvìtlete pojmy spojitost, stavovı prostor.
-64 1 2 4   Vysvìtlete pojmy nemìnná tøídy, pøedbìné a následné podmínky.
-65 2 3 5   Vysvìtlete princip kovariance a kontravariance.
-66 5 5 2   Vysvìtlete pojmy návrhovı vzor, katalog návrhovıch vzorù.
-67 2 2 3   Popište základní principy, na kterıch jsou zaloeny návrhové vzory.
-68 1 1 6   Popište základní princip návrhového vzoru Iterátor. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
-69 4 2 5   Popište základní princip návrhového vzoru Abstraktní továrna. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
-70 2 2 6   Popište základní princip návrhového vzoru Tovární metoda. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
-71 6 5 2   Popište základní princip návrhového vzoru Singleton. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
-72 2 5 6   Popište základní princip návrhového vzoru Skladba (Composite). Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
-73 2 4 1   Popište základní princip návrhového vzoru Dekorátor (Decorator). Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
-74 2 6 4   Popište základní princip jednoho z následujících návrhovıch vzorù: Most (Bridge), Muší váha (Flyweight), Stavitel (Builder), Stategie (Strategy), Stav (State). Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
-75 1 2 3   Popište základní princip jednoho z následujících návrhovıch vzorù: Adaptér, Proxy, Fasáda, Mediátor, Observer. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
-76 6 5 4   Popište základní princip jednoho z následujících návrhovıch vzorù: Transfer Object, Data Access Object, Front Controller. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
-77 3 2 1   Vysvìtlete pojmy motivace a stimulace.
-78 2 5 4   Vysvìtlete pojmy motivaèní zaloení, motivaèní poloha, motivaèní naladìní.
-79 2 3 4   Jakı je smysl testování? Vysvìtlete následující tvrzení: testování sniuje náklady.
-80 4 1 5   Vysvìtlete rozdíl mezi testováním novıch funkcí a stabilizací?
-81 4 5 1   Vysvìtlete pojmy black box a white-box testování
-82 2 4 5   Vysvìtlete pojem akceptaèní testování a regresní testy.
-83 3 1 5   Jak byste otestovali cyklus s podmínkou na zaèátku?
-84 4 1 2   Jak byste otestovali validitu e-mailové adresy? Uveïte podrobnı popis. 
-85 5 4 1   Vysvìtlete a popište, jak probíhá jednotkové testování. Uveïte pøíklad.
-86 2 2 5   Vysvìtlete pojmy alfa a beta testování, zátìové testování, validaèní testování.
-87 3 2 4   Co jsou to autotesty, jakı je jejich vıznam, jaké mají vıhody a nevıhody?
-88 1 4 5   Vysvìtlete podstatu následujících procesù v podniku: systémová integrace, provoz ICT, servis ICT
-89 4 1 2   Vysvìtlete pojem dostupnost, lhùta plnìní, základní doba slueb v oblasti provozu IS.
-90 4 4 2   Vysvìtlete princip èinnosti primární a sekundární podpory.
-91 2 3 3   Jaké je základní pravidlo pøi øešení problémù servisu informaèních systémù?
-92 3 2 3   Jak vypadá SLA v oblasti servisu IS?
-93 4 5 2   Vysvìtlete pojmy provozní, testovací a vıvojové prostøedí v oblasti servisu IS.
-94 3 2 1   Jakım zpùsobem je chránìn software v ÈR, EU, USA?
-95 2 4 2   Vysvìtlete pojem autorské dílo, uveïte pøíklady autorskıch dìl, co není autorskım dílem?
-96 4 1 2   Popište princip dualismu autorského práva – právo majetkové a právo osobnostní. Uveïte alespoò dvì vıjimky (omezení) autorského práva.
-97 2 5 1   Uveïte a popište alespoò ètyøi varianty zpùsobu šíøení software.
-98 2 4 5   Uveïte a popište alespoò tøi druhy smluvních vztahù v oblasti vıvoje èi provozu software. 
-99 1 2 3   Popište základní typy licencování softwaru a základní obsah licenèní smlouvy.
-100 2 1 1   Je dán následující scénáø pøípadu uití:	%n	Klient vloí kartu. Bankomat kartu pøeète a zjistí její sériové èíslo.	%n	Bankomat poádá uivatele o zadání PIN; uivatel zadá "1234".	%n	Bankomat ovìøí èíslo karty a PIN u centrálního poèítaèe.	%n	Bankomat poádá o zadání velikosti èástky; uivatel zadá 1000 Kè	%n	Bankomat poádá centrální poèítaè o provedení transakce; centrální poèítaè transakci provede a vrátí novı zùstatek úètu.	%n	Bankomat vydá èástku, vytiskne stvrzenku a vrátí kartu.	%n	Nakreslete odpovídající sekvenèní diagram.
+1 1 2 1  Popište smysl pyramidy vitality a vıznam jejích jednotlivıch pater (základní obrázek budete mít k dispozici)
+2 2 2 1  Popište smysl Maslowovy pyramidy potøeb a vıznam jejích jednotlivıch pater (základní obrázek budete mít k dispozici)
+3 1 2 3  Popište a vysvìtlete základní schéma zajišování efektivity: Procesy-> Zdroje-> Struktury
+4 3 3 2  Popište a vysvìtlete princip dvou nezbytnıch podmínek stability: cyklického øízení a podpory lidí
+5 1 2 3  Popište a vysvìtlete princip dvou nezbytnıch podmínek dynamiky: proaktivního cyklického øízení a aktivity lidí
+6 1 1 3  Popište vıznam, dùleitost a monost zmìny následujících lidskıch zdrojù: vlastností, schopností a postojù
+7 1 2 3  Popište smysl pyramidy kultury a vıznam jejích jednotlivıch pater (základní obrázek budete mít k dispozici)
+8 2 3 1  Popište princip soutìivého vztahového chování; jakım zpùsobem dokáete soutì vyvolat, èi naopak potlaèit
+9 2 1 2  Popište princip spolupráce; jakım zpùsobem dokáete spolupráci podpoøit
+10 1 2 3  Proè se zabıváme poadavky na software? Pro koho jsou sesbírané a zdokumentované poadavky na software uiteèné?
+11 2 1 4  Vysvìtlete pojmy podnikatelské a uivatelské poadavky.
+12 4 1 2  Vysvìtlete pojmy systémové a funkèní poadavky.
+13 3 1 2  Vysvìtlete pojmy podnikatelská pravidla a parametrické (mimofunkèní) poadavky.
+14 1 2 1  Vysvìtlete vıznam podpisu dokumentu specifikace poadavkù.
+15 1 1 1  Uveïte alespoò tøi dobré zvyky, které jste pouili pøi psaní specifikace poadavkù bìhem vašeho tımového projektu. Vysvìtlete vıznam tìchto dobrıch zvykù.
+16 2 2 1  Vysvìtlete pojem vize a popište vıznam uvedení vize a stanovení rozsahu v dokumentu specifikace poadavkù.
+17 3 4 2  Vysvìtlete princip a pouití kontextového diagramu a diagramu pøípadu uití v rámci specifikace poadavkù. Nakreslete jednoduché pøíkladové obrázky.
+18 3 4 2  Roztøiïte následující poadavky (uveïte typ poadavku)%n	a. Potøebuji nastavit parametry zaøízení%n	b. Chceme sníit náklady na údrbu systému o 30.%n	c. Slovník lze abecednì setøídit (A-, -A).%n	d. Kadı vırobek má jedineènı èárovı kód.%n	e. Uivatel si vybere, jestli bude vyplòovat tuzemskı nebo zahranièní cestovní pøíkaz.\n	f. Systém musí bıt dostupnı alespoò v 99,0 v pracovní dny mezi šestou hodinou ranní a ètvrtou hodinou odpolední.%n	g. Systém musí bıt implementován v programovacím jazyce Java.
+19 2 2 3  Jakım zpùsobem získáte poadavky od uivatelù systému? Uveïte základní praktiky.
+20 1 2 3  Najdìte problémy v následujícím zadání poadavku a opravte ho: „Editor by mìl okamitì zobrazit/schovat všechny formátovací znaèky.“
+21 2 3 1  Popište smysl a náplò ètyø základních aktivit pøi vıvoji sw: specifikace, vıvoj, validace, evoluce.
+22 4 2 3  Popište vodopádovı model vıvoje sw, uveïte jeho vıhody a nevıhody.
+23 1 3 2  Popište modely vıvoje sw: vızkumník (evoluèní prototypování) a prototyp (throw-away prototypování), uveïte vhodnou oblast jejich pouití.
+24 4 2 1  Vysvìtlete základní principy iteraèního a inkrementálního modelu vıvoje sw.
+25 1 2 1  Popište základní principy, fáze a aktivity metodiky Rational Unified Proces (RUP).
+26 4 5 6  Vysvìtlete zásadní rozdíly mezi agilním pøístupem k vıvoji sw a vodopádovım modelem.
+27 6 2 1  Jak byste prakticky postupovali pøi zavádìní modelu vıvoje sw?
+28 1 2 3  Co je to projekt? Jakı je rozdíl mezi projektem a procesem?
+29 4 2 3  Co znamená trojí (ètvero) omezení projektu?
+30 4 5 2  Vysvìtlete pojmy Ganttùv diagram a struktura rozpisu prací (WBS). Uveïte ilustraèní pøíklady.
+31 3 2 5  Co je to konfiguraèní management a k èemu je dobrı?
+32 2 3 4  Popište princip práce s repository (SVN nebo GIT).
+33 4 2 5  Co je to UML a k èemu ho pouiji?.
+34 5 2 4  Vysvìtlete základní princip a pouití UML diagramu pøípadù uití. Nakreslete pøíkladovı obrázek.
+35 4 2 5  Vysvìtlete základní princip a pouití UML diagramu tøíd. Nakreslete pøíkladovı obrázek.
+36 5 5 5  Vysvìtlete základní princip a pouití UML stavového diagramu. Nakreslete pøíkladovı obrázek.
+37 4 2 5  Vysvìtlete základní princip a pouití UML sekvenèního diagramu. Nakreslete pøíkladovı obrázek.
+38 5 4 2  Vysvìtlete základní princip a pouití UML diagramu aktivit. Nakreslete pøíkladovı obrázek.
+39 4 4 5  Vysvìtlete základní princip a pouití alespoò jednoho z následujících UML diagramù: diagram spolupráce, objektovı diagram. Nakreslete pøíkladovı obrázek.
+40 4 4 4  Vysvìtlete základní princip a pouití alespoò jednoho z následujících UML diagramù: diagram nasazení, diagram komponent. Nakreslete pøíkladovı obrázek.
+41 2 4 1  Vysvìtlete pojem analytickı model, popište, jak vypadá analytická tøída
+42 4 5 2  Popište principy metod hledání analytickıch tøíd (podstatná jména, slovesa, CRC karty, typické zdroje)
+43 1 2 1  Vysvìtlete pojmy asociace, spojení, závislost.
+44 4 5 6  Vysvìtlete pojmy asociace, agregace, kompozice.
+45 6 4 5  Vysvìtlete pojem realizace pøípadu uití, co podstatného zahrnuje.
+46 4 5 2  Vysvìtlete rozdíl a návaznost mezi analızou a návrhem softwaru.
+47 4 5 6  Vysvìtlete pojem rozhraní, jak rozhodnete ve fázi návrhu o vhodnosti existence rozhraní.
+48 4 4 5  Vysvìtlete rozdíl mezi objektovì orientovanou analızou (návrhem) a strukturovanou analızou (designem), na základì èeho byste rozhodovali, kdy kterou pouít.
+49 5 6 4  Vysvìtlete pojmy diagram datovıch tokù (DFD) a model kontextu systému (nakreslete obrázek).
+50 4 4 5  Vysvìtlete rozdíly mezi klasickou DeMarcovo metodologií a Yourdonovou "moderní strukturovaná analızou".
+51 6 2 4  Vysvìtlete pojmy centrální transformace a strukturogram. Nakreslete pøíkladovı obrázek.
+52 4 4 2  Zhodnote vıznam návrhu architektury sw systému pro úspìšnost vısledného sw systému, popište, jak budete principiálnì postupovat pøi návrhu architektury.
+53 4 5 6  Vysvìtlete rozdíly mezi dvìma základními vztahy mezi podsystémy (klient-poskytovatel, peer-to-peer).
+54 4 4 5  Vysvìtlete pojmy vrstva a oddíl, uveïte pøíklad vrstvené architektury.
+55 2 3 5  Popište rozdíl mezi uzavøenou a otevøenou vrstvenou architekturou.
+56 4 4 6  Na základì èeho rozhodnete, jestli zrealizujete podsystém jako hardware nebo software?
+57 3 2 6  Srovnejte souborová a databázová datová úloištì, jakım zpùsobem byste se rozhodovali pro pouití souboru, nebo databáze?
+58 2 3 5  Vysvìtlete pojmy systém øízenı procedurálnì, systém øízenı událostmi, paralelní systém.
+59 2 3 4  Vysvìtlete pojem architektonickı styl, jakı architektonickı styl jste pouili ve vašem projektu?
+60 4 2 3  Popište architektonické styly dataflow, aktivní a pasivní datové úloištì.
+61 1 1 4  Popište a vysvìtlete princip tøívrstvé architektury.
+62 4 2 3  Popište a vysvìtlete princip architektury MVC. Nakreslete pøíkladovı obrázek.
+63 4 4 6  Vysvìtlete pojmy spojitost, stavovı prostor.
+64 1 2 4  Vysvìtlete pojmy nemìnná tøídy, pøedbìné a následné podmínky.
+65 2 3 5  Vysvìtlete princip kovariance a kontravariance.
+66 5 5 2  Vysvìtlete pojmy návrhovı vzor, katalog návrhovıch vzorù.
+67 2 2 3  Popište základní principy, na kterıch jsou zaloeny návrhové vzory.
+68 1 1 6  Popište základní princip návrhového vzoru Iterátor. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
+69 4 2 5  Popište základní princip návrhového vzoru Abstraktní továrna. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
+70 2 2 6  Popište základní princip návrhového vzoru Tovární metoda. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
+71 6 5 2  Popište základní princip návrhového vzoru Singleton. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
+72 2 5 6  Popište základní princip návrhového vzoru Skladba (Composite). Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
+73 2 4 1  Popište základní princip návrhového vzoru Dekorátor (Decorator). Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
+74 2 6 4  Popište základní princip jednoho z následujících návrhovıch vzorù: Most (Bridge), Muší váha (Flyweight), Stavitel (Builder), Stategie (Strategy), Stav (State). Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
+75 1 2 3  Popište základní princip jednoho z následujících návrhovıch vzorù: Adaptér, Proxy, Fasáda, Mediátor, Observer. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
+76 6 5 4  Popište základní princip jednoho z následujících návrhovıch vzorù: Transfer Object, Data Access Object, Front Controller. Nakreslete pøíkladovı obrázek – UML diagram struktury vzoru.
+77 3 2 1  Vysvìtlete pojmy motivace a stimulace.
+78 2 5 4  Vysvìtlete pojmy motivaèní zaloení, motivaèní poloha, motivaèní naladìní.
+79 2 3 4  Jakı je smysl testování? Vysvìtlete následující tvrzení: testování sniuje náklady.
+80 4 1 5  Vysvìtlete rozdíl mezi testováním novıch funkcí a stabilizací?
+81 4 5 1  Vysvìtlete pojmy black box a white-box testování
+82 2 4 5  Vysvìtlete pojem akceptaèní testování a regresní testy.
+83 3 1 5  Jak byste otestovali cyklus s podmínkou na zaèátku?
+84 4 1 2  Jak byste otestovali validitu e-mailové adresy? Uveïte podrobnı popis. 
+85 5 4 1  Vysvìtlete a popište, jak probíhá jednotkové testování. Uveïte pøíklad.
+86 2 2 5  Vysvìtlete pojmy alfa a beta testování, zátìové testování, validaèní testování.
+87 3 2 4  Co jsou to autotesty, jakı je jejich vıznam, jaké mají vıhody a nevıhody?
+88 1 4 5  Vysvìtlete podstatu následujících procesù v podniku: systémová integrace, provoz ICT, servis ICT
+89 4 1 2  Vysvìtlete pojem dostupnost, lhùta plnìní, základní doba slueb v oblasti provozu IS.
+90 4 4 2  Vysvìtlete princip èinnosti primární a sekundární podpory.
+91 2 3 3  Jaké je základní pravidlo pøi øešení problémù servisu informaèních systémù?
+92 3 2 3  Jak vypadá SLA v oblasti servisu IS?
+93 4 5 2  Vysvìtlete pojmy provozní, testovací a vıvojové prostøedí v oblasti servisu IS.
+94 3 2 1  Jakım zpùsobem je chránìn software v ÈR, EU, USA?
+95 2 4 2  Vysvìtlete pojem autorské dílo, uveïte pøíklady autorskıch dìl, co není autorskım dílem?
+96 4 1 2  Popište princip dualismu autorského práva – právo majetkové a právo osobnostní. Uveïte alespoò dvì vıjimky (omezení) autorského práva.
+97 2 5 1  Uveïte a popište alespoò ètyøi varianty zpùsobu šíøení software.
+98 2 4 5  Uveïte a popište alespoò tøi druhy smluvních vztahù v oblasti vıvoje èi provozu software. 
+99 1 2 3  Popište základní typy licencování softwaru a základní obsah licenèní smlouvy.
+100 2 1 1  Je dán následující scénáø pøípadu uití:	%n	Klient vloí kartu. Bankomat kartu pøeète a zjistí její sériové èíslo.	%n	Bankomat poádá uivatele o zadání PIN; uivatel zadá "1234".	%n	Bankomat ovìøí èíslo karty a PIN u centrálního poèítaèe.	%n	Bankomat poádá o zadání velikosti èástky; uivatel zadá 1000 Kè	%n	Bankomat poádá centrální poèítaè o provedení transakce; centrální poèítaè transakci provede a vrátí novı zùstatek úètu.	%n	Bankomat vydá èástku, vytiskne stvrzenku a vrátí kartu.	%n	Nakreslete odpovídající sekvenèní diagram.
