@@ -23,7 +23,7 @@ public class Aplikace  extends Application{
 
 			while(sc.hasNextLine()){
 				int id = sc.nextInt();
-				String nazev = sc.nextLine();
+				String nazev = sc.nextLine().trim();
 				kategorie.add(new Kategorie(id, nazev));
 			}
 
@@ -35,7 +35,7 @@ public class Aplikace  extends Application{
 				int pocetBodu = sc.nextInt();
 				int misto = sc.nextInt();
 				int idKategorie = sc.nextInt();
-				String nazev = sc.nextLine();
+				String nazev = sc.nextLine().trim();
 				otazky.add(new Otazka(id, nazev, pocetBodu, misto, idKategorie));
 			}
 

@@ -497,7 +497,7 @@ public class HlavniOkno extends Stage{
 			for(int i = 0; i < kategorie.size(); i++){												//projde kategorie a uloží je
 				if(i != 0) soubor.newLine();
 				Kategorie pomKat = kategorie.get(i);
-				soubor.write(pomKat.getIdKategorie() + " " + pomKat.getNazev());
+				soubor.write(pomKat.getIdKategorie() + " " + pomKat.getNazev().trim());
 			}
 			soubor.flush();
 			soubor.close();
@@ -507,7 +507,7 @@ public class HlavniOkno extends Stage{
 			for(int i = 0; i < otazky.size(); i++){													//projde otázky a uloží je
 				if(i != 0) soubor.newLine();
 				Otazka pomOtazka = otazky.get(i);
-				soubor.write(pomOtazka.getId() + " " + pomOtazka.getPocetBodu() + " " + pomOtazka.getMisto() + " " + pomOtazka.getIdKategorie() + " " + pomOtazka.getOtazka());
+				soubor.write(pomOtazka.getId() + " " + pomOtazka.getPocetBodu() + " " + pomOtazka.getMisto() + " " + pomOtazka.getIdKategorie() + " " + pomOtazka.getOtazka().trim());
 			}
 			soubor.flush();
 			soubor.close();
