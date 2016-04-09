@@ -53,6 +53,7 @@ public class Generovani {
 	private ArrayList<Kategorie> kategorie;
 	private Random rnd;
 
+
     /** Cesta a nazev vytvoreneho PDF souboru */
     public static final String pdfNazev = "./ZSWI.pdf";
 
@@ -124,7 +125,7 @@ public class Generovani {
 			}
 
 			try {
-				vytvorPDF(skola, zkous, datum, vybraneOtazky);
+				vytvorPDF(zkous, datum, vybraneOtazky);
 			} catch (DocumentException e) {
 				System.err.print("Chyba pri exportu do PDF");
 			}
@@ -132,7 +133,7 @@ public class Generovani {
 		writer.close();
 	}
 
-	private void vytvorPDF(String skola, String zkousejici, String datum, ArrayList<String> vybraneOtazky) throws DocumentException, IOException{
+	private void vytvorPDF(String zkousejici, String datum, ArrayList<String> vybraneOtazky) throws DocumentException, IOException{
 
 
     	// Nastaveni velikosti dokumentu
@@ -145,8 +146,7 @@ public class Generovani {
 
         //Pridani ceskeho fontu
         BaseFont bfArial = BaseFont.createFont
-        		(
-        		"c:\\windows\\fonts\\arial.ttf",
+        		("c:\\windows\\fonts\\arial.ttf",
         		BaseFont.IDENTITY_H,
         		BaseFont.EMBEDDED
         		);
@@ -155,29 +155,29 @@ public class Generovani {
 
         document.addTitle("Vygenerovany test");	//nastavi titulek dokumentu
 
-        Font hlavickaFont = new Font(bfArial, 14.0f, Font.NORMAL, BaseColor.BLACK); //nastaveni pisma hlavicky
+       	Font hlavickaFont = new Font(bfArial, 12.0f, Font.NORMAL, BaseColor.BLACK); //nastaveni pisma hlavicky
+
 
         //Vypise hlavicku
         Chunk rozmisteni = new Chunk(new VerticalPositionMark());
-        Paragraph hlavicka = new Paragraph("Škola: "+skola,hlavickaFont);
-        hlavicka.add(new Chunk(rozmisteni));
-        hlavicka.add("Pøedmìt: ");
+        Paragraph hlavicka = new Paragraph("Fakulta aplikovaných vìd", hlavickaFont);
         hlavicka.add(new Chunk(rozmisteni));
         hlavicka.add("Pøíjmení a jméno: ....................");
         document.add(hlavicka);
         hlavicka.clear();
 
-        hlavicka.add("Zkoušející: "+zkousejici);
+        hlavicka.add("Základy softwarového inženýrství");
         hlavicka.add(new Chunk(rozmisteni));
         hlavicka.add("Osobní èíslo: ....................");
         document.add(hlavicka);
         hlavicka.clear();
 
-        hlavicka.add("Datum: "+datum);
+        hlavicka.add("Zkoušející: "+zkousejici);
         hlavicka.add(new Chunk(rozmisteni));
-        hlavicka.add("Pracovní skupina: ....................");
+        hlavicka.add("Tým: ....................");
         document.add(hlavicka);	//zapise do souboru
 
+        document.add(new Paragraph("Datum: "+datum));
         document.add(new Paragraph(" ")); //odradkuje
 
         //Vypis otazek
