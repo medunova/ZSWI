@@ -129,9 +129,7 @@ public class oknoExportuj extends Stage {
 		bt.setOnAction((ActionEvent e) -> {
 			if(PBody.isSelected() == true) {
 				try {
-					new Generovani(kategorie, otazky,PBody,POtazky,
-							institut.getText(),zkousejici.getText(),pocty.getText(),
-							idTestu(), datum.getText());
+					new Generovani(otazky, idTestu(), datum.getText(), institut.getText(), zkousejici.getText(), true, Integer.parseInt(pocty.getText()));
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -142,9 +140,7 @@ public class oknoExportuj extends Stage {
 
 				System.out.println("Test byl vytvoøen");
 				try {
-					new Generovani(kategorie, otazky,PBody,POtazky,
-							institut.getText(),zkousejici.getText(),pocty.getText(),
-							idTestu(), datum.getText());
+					new Generovani(otazky, idTestu(), datum.getText(), institut.getText(), zkousejici.getText(), false, Integer.parseInt(pocty.getText()));
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

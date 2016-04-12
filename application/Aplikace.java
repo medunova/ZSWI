@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class Aplikace  extends Application{
 
 	private static Scanner sc;
-
+	
 	public void start(Stage primaryStage){
 		try{
 			sc = new Scanner(new File("kategorie.txt"));									//naètení kategorií

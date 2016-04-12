@@ -67,6 +67,24 @@ public class Otazka {
 	public int getIdKategorie(){
 		return this.idKategorie;
 	}
+	
+	/**
+	 * Vrací poèet øádkù potøebných pro text otázky
+	 * @return poèet øádkù pro text
+	 */
+	public int getPocetRadkuText(){
+		int mistoText = (this.otazka.length() / 100) + 1;
+		return mistoText;
+	}
+
+	/**
+	 * Vrací poèet øádkù potøebných pro odpovìï
+	 * @return poèet øádkù pro odpovìï
+	 */
+	public int getPocetRadkuMisto(){
+		int mistoOdpoved = (this.misto * 10) / 5;
+		return mistoOdpoved;
+	}
 
 	/**
 	 * Nastaví text otázky
