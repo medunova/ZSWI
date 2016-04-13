@@ -82,7 +82,7 @@ public class Otazka {
 	 * @return poèet øádkù pro odpovìï
 	 */
 	public int getPocetRadkuMisto(){
-		int mistoOdpoved = (this.misto * 10) / 5;
+		int mistoOdpoved = (this.misto * 10) / 6;
 		return mistoOdpoved;
 	}
 
