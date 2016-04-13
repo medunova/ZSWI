@@ -22,7 +22,7 @@ public class oknoExportuj extends Stage {
 	final ToggleGroup group = new ToggleGroup();
 	private BorderPane hlPanel;
 	private ToggleButton PBody, POtazky;
-	private TextField pocty, institut, zkousejici, datum;
+	private TextField pocty, institut, zkousejici, datum, predmet;
 	private Button tisk;
 	private ArrayList<Otazka> otazky;
 	private ArrayList<Kategorie> kategorie;
@@ -54,13 +54,20 @@ public class oknoExportuj extends Stage {
 		vbox.setAlignment(Pos.CENTER);
 		HBox radek1 = new HBox(10);
 		HBox radek2 = new HBox(10);
+		HBox radek3 = new HBox(10);
 
 		institut = new TextField();
+		institut.setText("Fakulta aplikovaných vìd");
 		Label text1 = new Label("Škola: ");
 		text1.setId("text1");
 		zkousejici = new TextField();
+		zkousejici.setText("Roman Mouèek");
 		Label text2 = new Label("Zkoušející: ");
 		text2.setId("text2");
+		predmet = new TextField();
+		predmet.setText("Základy softwarového inženýrství");
+		Label text5 = new Label("Pøedmìt: ");
+		text5.setId("text5");
 
 		String idTestu = idTestu();
 		Label text3 = new Label("ID testu: " + '\t' + idTestu);
@@ -71,9 +78,10 @@ public class oknoExportuj extends Stage {
 
 
 		radek1.getChildren().addAll(text1,institut,text2,zkousejici);
-		radek2.getChildren().addAll(text3,text4, datum);
+		radek2.getChildren().addAll(text5,predmet,text4, datum);
+		radek3.getChildren().addAll(text3);
 
-		vbox.getChildren().addAll(radek1, radek2);
+		vbox.getChildren().addAll(radek1, radek2,radek3);
 
 		return vbox;
 	}
@@ -129,7 +137,7 @@ public class oknoExportuj extends Stage {
 		bt.setOnAction((ActionEvent e) -> {
 			if(PBody.isSelected() == true) {
 				try {
-					new Generovani(otazky, idTestu(), datum.getText(), institut.getText(), zkousejici.getText(), true, Integer.parseInt(pocty.getText()));
+					new Generovani(otazky, idTestu(), datum.getText(), institut.getText(), zkousejici.getText(), predmet.getText(), true, Integer.parseInt(pocty.getText()));
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -140,7 +148,7 @@ public class oknoExportuj extends Stage {
 
 				System.out.println("Test byl vytvoøen");
 				try {
-					new Generovani(otazky, idTestu(), datum.getText(), institut.getText(), zkousejici.getText(), false, Integer.parseInt(pocty.getText()));
+					new Generovani(otazky, idTestu(), datum.getText(), institut.getText(), zkousejici.getText(), predmet.getText(), false, Integer.parseInt(pocty.getText()));
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -159,7 +167,7 @@ public class oknoExportuj extends Stage {
 			sc = new Scanner(new File("IDTESTU.txt"));
 			s = sc.next();
 			p = Integer.parseInt(s) + 1;
-			
+
 			writer = new FileWriter("IDTESTU.txt");
 			writer.write(Integer.toString(p));
 			writer.close();

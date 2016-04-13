@@ -8,42 +8,48 @@
    -fx-font-size: 16;
    -fx-fill: FIREBRICK;
    -fx-font-weight: bold;
-   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 ); 
+   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
 #text2 {
    -fx-font-size: 16;
    -fx-fill: FIREBRICK;
    -fx-font-weight: bold;
-   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 ); 
+   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
 #text3 {
    -fx-font-size: 16;
    -fx-fill: FIREBRICK;
    -fx-font-weight: bold;
-   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 ); 
+   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
 #text4 {
    -fx-font-size: 16;
    -fx-fill: FIREBRICK;
    -fx-font-weight: bold;
-   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 ); 
+   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+#text5 {
+   -fx-font-size: 16;
+   -fx-fill: FIREBRICK;
+   -fx-font-weight: bold;
+   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
 #text {
    -fx-font-size: 22;
    -fx-fill: FIREBRICK;
    -fx-font-weight: bold;
-   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 ); 
+   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
 #popis {
    -fx-font-size: 16;
    -fx-fill: FIREBRICK;
    -fx-font-weight: bold;
-   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 ); 
+   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
 #PBody {
@@ -74,7 +80,7 @@
 }
 
 #tisk {
-    -fx-background-color: 
+    -fx-background-color:
         #c3c4c4,
         linear-gradient(#61a2b1, #2A5058);
     -fx-background-radius: 30;
@@ -85,8 +91,8 @@
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
 }
 
-#tisk: hover {
-    -fx-background-color: 
+#tisk:hover {
+    -fx-background-color:
         #c3c4c4,
         linear-gradient(#2A5058, #61a2b1);
     -fx-background-radius: 30;
@@ -98,26 +104,4 @@
 }
 
 
-#export {
-    -fx-background-color: 
-        #c3c4c4,
-        linear-gradient(#61a2b1, #2A5058);
-    -fx-background-radius: 30;
-    -fx-background-insets: 0,1,1;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-font-size: 14;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
-}
 
-#export: hover {
-    -fx-background-color: 
-        #c3c4c4,
-        linear-gradient(#2A5058, #61a2b1);
-    -fx-background-radius: 30;
-    -fx-background-insets: 0,1,1;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-font-size: 14;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
-}

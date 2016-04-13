@@ -29,9 +29,9 @@ public class Generovani {
 
 	ArrayList<Otazka> vybraneOtazky = new ArrayList<Otazka>();								//seznam vygenerovaných otázek
 	ArrayList<Otazka> nevybraneOtazky;														//seznam nevybraných otázek
-	
+
     /** Cesta a nazev vytvoreneho PDF souboru */
-    public static final String pdfNazev = "./ZSWI.pdf";
+    public static String pdfNazev;
 
     /**
      * Konstruktor tøídy pro generování a export do pDF
@@ -43,13 +43,15 @@ public class Generovani {
      * @param idTest id testu
      * @param datum datum zkoušky
      */
-	public Generovani(ArrayList<Otazka> otazky, String idTest, String datum, String skola, String zkous, Boolean body, int pocet) {
-		try {		
+	public Generovani(ArrayList<Otazka> otazky, String idTest, String datum, String skola, String zkous, String predmet, Boolean body, int pocet) {
+
+		this.pdfNazev = "./"+idTest+".pdf";
+		try {
 			nevybraneOtazky = (ArrayList<Otazka>)otazky.clone();
 			generujOtazky(nevybraneOtazky, body, pocet);
-			vytvorPDF(skola, zkous, datum, vybraneOtazky);
-		
-		} 
+			vytvorPDF(skola, zkous,predmet, datum, vybraneOtazky);
+
+		}
 		catch (DocumentException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Export dat.");
@@ -66,7 +68,7 @@ public class Generovani {
 		}
 
 	}
-	
+
 	/**
 	 * Metoda pro generování náhodných otázek
 	 * @param otazky celkový seznam otázek pro náhodný výbìr
@@ -91,7 +93,7 @@ public class Generovani {
 																							  pobìží cyklus poøád dokola - pøi 150 opakování se vybrané otázky vymažou a do nevybraných se doplní
 																							  všechny otázky a náhodné generování bude probíhat od zaètku
 																							*/
-				if(pocetOpakovani == 150){														
+				if(pocetOpakovani == 150){
 					vybraneOtazky.clear();
 					nevybraneOtazky = otazky;
 					aktualniPocet = 0;
@@ -109,7 +111,7 @@ public class Generovani {
 		}
 	}
 
-	private void vytvorPDF(String skola, String zkousejici, String datum, ArrayList<Otazka> vybraneOtazky) throws DocumentException, IOException{
+	private void vytvorPDF(String skola, String zkousejici,String predmet, String datum, ArrayList<Otazka> vybraneOtazky) throws DocumentException, IOException{
 
 
     	// Nastaveni velikosti dokumentu
@@ -136,25 +138,27 @@ public class Generovani {
 
         //Vypise hlavicku
         Chunk rozmisteni = new Chunk(new VerticalPositionMark());
-        Paragraph hlavicka = new Paragraph("Škola: "+skola,hlavickaFont);
-        hlavicka.add(new Chunk(rozmisteni));
-        hlavicka.add("Pøedmìt: ");
+        Paragraph hlavicka = new Paragraph(skola,hlavickaFont);
         hlavicka.add(new Chunk(rozmisteni));
         hlavicka.add("Pøíjmení a jméno: ....................");
         document.add(hlavicka);
         hlavicka.clear();
 
-        hlavicka.add("Zkoušející: "+zkousejici);
+        hlavicka.add(predmet);
         hlavicka.add(new Chunk(rozmisteni));
         hlavicka.add("Osobní èíslo: ....................");
         document.add(hlavicka);
         hlavicka.clear();
 
-        hlavicka.add("Datum: "+datum);
+
+        hlavicka.add("Zkoušející: "+zkousejici);
         hlavicka.add(new Chunk(rozmisteni));
-        hlavicka.add("Pracovní skupina: ....................");
+        hlavicka.add("Tým: ....................");
         document.add(hlavicka);	//zapise do souboru
 
+        hlavicka.clear();
+        hlavicka.add("Datum: "+datum);
+        document.add(hlavicka);	//zapise do souboru
         document.add(new Paragraph(" ")); //odradkuje
 
         Font otazkyFont = new Font(bfArial, 11.0f, Font.NORMAL, BaseColor.BLACK); //nastaveni pisma otazek
@@ -162,7 +166,7 @@ public class Generovani {
         tiskOtazek(document, otazkyFont);
         document.close();	//zavre soubor
 	}
-	
+
 	/**
 	 * Metoda seøadí a pøidá do exportu jednotlivé otázky
 	 * @param document soubor který se exportuje
@@ -174,7 +178,7 @@ public class Generovani {
 		int cislo = 0;
 		Comparator comp = Comparator.comparing(Otazka::getMisto);
 		Collections.sort(vybraneOtazky, Collections.reverseOrder(comp));											//seøadí otázky v seznamu od nejvìtší velikosti místa
-		
+
 		while(vybraneOtazky.size() > 0){																			//cyklus pobìží dokud nejsou na stránce všechny vygenerované otázky
 			do{
 				nalezeno = false;
@@ -186,7 +190,7 @@ public class Generovani {
 						document.add(otazkaTisk);
 						prostor -= otazka.getPocetRadkuText();
 						for(int j = 0; j < otazka.getPocetRadkuMisto(); j++)										//nastaví volné øádky pro odpovìï
-					        if(--prostor > 0) document.add(new Paragraph(" ")); 
+					        if(--prostor > 0) document.add(new Paragraph(" "));
 
 						vybraneOtazky.remove(otazka);																//otázka se odebere ze seznamu
 						nalezeno = true;
@@ -194,16 +198,16 @@ public class Generovani {
 					}
 				}
 			}
-			while (nalezeno);																						/*pokud nebyla otázka nalezena, znamená to buï že je seznam prázdný 
+			while (nalezeno);																						/*pokud nebyla otázka nalezena, znamená to buï že je seznam prázdný
 																													  nebo se na stránku už žádná z vygenerovaných otázek nevejde
 																													 */
 			if(vybraneOtazky.size() > 0)																			//pokud jsou stále nìjaké vygenerované otázky, vytvoøí se nová stránka a cyklus zaène znovu
-				document.newPage(); 
-			
+				document.newPage();
+
 			prostor = 43;																							//nová velikost prostoru pro stránky bez hlavièky
 		}
 	}
-	
 
-	
+
+
 }
