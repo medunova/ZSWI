@@ -62,7 +62,7 @@ public class oknoExportuj extends Stage {
 		Scene scene = new Scene(hlPanel, 600, 400);
 		this.setScene(scene);
 		scene.getStylesheets().add
-		 (oknoExportuj.class.getResource("oknoExportuj.css").toExternalForm());
+		 (oknoExportuj.class.getResource("vzhled.css").toExternalForm());
 
 		this.setTitle("Exportovat do pdf");
 	}
@@ -86,18 +86,18 @@ public class oknoExportuj extends Stage {
 		zkousejici = new TextField();
 		zkousejici.setText("Roman Mouèek"); //defaultní nastavení
 		Label text2 = new Label("Zkoušející: ");
-		text2.setId("text2");
+		text2.setId("text1");
 		predmet = new TextField();
 		predmet.setText("Základy softwarového inženýrství"); //defaultní nastavení
 		Label text5 = new Label("Pøedmìt: ");
-		text5.setId("text5");
+		text5.setId("text1");
 
 		String idTestu = idTestu(); //nacitani jednoznaèného ID Testu
 		Label text3 = new Label("ID testu: " + '\t' + idTestu);
-		text3.setId("text3");
+		text3.setId("text1");
 		datum = new TextField();
 		Label text4 = new Label('\t' + "Datum testu: ");
-		text4.setId("text4");
+		text4.setId("text1");
 
 		choices = vyberKat(); // výbìr kategorii
 
@@ -122,7 +122,7 @@ public class oknoExportuj extends Stage {
 
 		pocty = new TextField();
 		Label popis = new Label("Zadejte pocet: ");
-		popis.setId("popis"); //vzhled  z *.css souboru
+		popis.setId("text1"); //vzhled  z *.css souboru
 
 		PBody = new ToggleButton("Poèet bodù");
 		PBody.setToggleGroup(group);
@@ -134,7 +134,7 @@ public class oknoExportuj extends Stage {
 		POtazky.setId("POtazky"); //vzhled  z *.css souboru
 
 		Label text = new Label("Vybrat náhodnì dle: ");
-		text.setId("text");
+		text.setId("text1");
 
 		HBox radek1 = new HBox(10);
 		radek1.getChildren().addAll(text, PBody, POtazky);

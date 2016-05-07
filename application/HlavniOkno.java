@@ -68,7 +68,7 @@ public class HlavniOkno extends Stage{
 
 		Scene scene = new Scene(bPane, 1200, 600);									//velikost okna
 		this.setScene(scene);
-		scene.getStylesheets().add(HlavniOkno.class.getResource("HlavniOkno.css").toExternalForm());
+		scene.getStylesheets().add(HlavniOkno.class.getResource("vzhled.css").toExternalForm());
 
 		this.setTitle("Generování otázek");											//nastavení titulku
 		this.show();																//zobrazení okna
@@ -108,6 +108,7 @@ public class HlavniOkno extends Stage{
 	private HBox getBottomPane(){
 		HBox box = new HBox();
 		Button generovat = new Button("Generovat test");								//vytvoøení tlaèítka pro spuštìní generování testu
+		generovat.setId("tisk");
 		generovat.setPrefWidth(150);													//nastavení velikosti tlaèítka
 		generovat.setOnAction(new EventHandler<ActionEvent>(){							//nastavení akce po kliknutí na tlaèítko generovat
 
@@ -139,6 +140,7 @@ public class HlavniOkno extends Stage{
 
 		Button pridej = new Button("Pøidej kategorii");									//vytvoøí tlaèítko pro pøidání kategorie
 		Button odeber = new Button("Odeber kategorii");									//vytvoøí tlaèítko pro odebrání kategorie
+		odeber.setId("tisk");
 		odeber.setOnAction(new EventHandler<ActionEvent>(){								//akce pro odebrání kategorie
 
 			@Override
@@ -149,6 +151,7 @@ public class HlavniOkno extends Stage{
 
 		});
 
+		pridej.setId("tisk");
 		pridej.setOnAction(new EventHandler<ActionEvent>(){								//akce pro pøidání kategorií
 
 			@Override
@@ -179,7 +182,9 @@ public class HlavniOkno extends Stage{
 		Button pridej = new Button("Pøidej otázku");									//vytvoøí tlaèítko pro pøídání otázky
 		Button odeber = new Button("Odeber otázku");									//vytvoøí tlaèítko pro odebrání otázky
 		pridej.setPrefWidth(150);														//nastavení šíøky tlaèítek
-		odeber.setPrefWidth(150);
+		pridej.setId("tisk");
+		odeber.setPrefWidth(150);														//vzhled z *.css souboru
+		odeber.setId("tisk");
 
 		odeber.setOnAction(new EventHandler<ActionEvent>(){								//nastaví akci pro odebrání otázky
 
