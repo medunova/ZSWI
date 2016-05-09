@@ -157,7 +157,7 @@ public class oknoExportuj extends Stage {
 		VBox hbox = new VBox(5);
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(5,5,20,5));
-		tisk = vytiskni();
+		tisk = vytvor();
 		tisk.setId("tisk");
 		done = new Label("");
 
@@ -169,7 +169,7 @@ public class oknoExportuj extends Stage {
  * Metoda na vytváøení tlaèítka
  * @return hotové tlaèítko
  */
-	private Button vytiskni() {
+	private Button vytvor() {
 		Button bt = new Button("Vytvoø test");
 		bt.setOnAction((ActionEvent e) -> {
 			//Pokud je vybrané tvoøení podle bodù
@@ -190,7 +190,20 @@ public class oknoExportuj extends Stage {
 					e1.printStackTrace();
 				}
 			}
-			done.setText(" Test byl vytvoren"); //hláška, která se objeví pod tlaèítkem
+			Alert inform = new Alert(AlertType.INFORMATION);
+			inform.setTitle("Hotovo");
+			inform.setHeaderText("Váš test byl vytvoøen");
+
+			inform.show(); // ukáže informaèní okno
+			// poèká 3 vteøiny
+			long mTime = System.currentTimeMillis();
+			long end = mTime + 2000;
+			while (mTime < end) 
+			{
+			    mTime = System.currentTimeMillis();
+			}
+			//a pak okno zavøe
+			inform.close();
 		});
 
 		return bt;
