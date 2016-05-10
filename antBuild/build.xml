@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Test" default="createJar" basedir="../">
+    <property name="srcdir" location="./src" />
+    <property name="bindir" location="./bin" />
+    <property name="deploydir" location="./deploy" />
+    <property name="jarname" value="Aplikace.jar" />
+    <property name="mainclass" value="Aplikace" />
+<property name="jar.class.path" value="./lib/itextpdf-5.4.1.jar"/>
+
+<path id="project.class.path">
+    <pathelement location="build"/>
+    <fileset dir="." includes="${jar.class.path}"/>
+</path>
+ 
+    <target name="compile">
+        <javac srcdir="${srcdir}" destdir="${bindir}" />
+    </target>
+
+ 
+    <target name="createJar" depends="compile">
+        <jar destfile="${deploydir}/${jarname}">
+            <fileset dir="${bindir}"/>
+            <manifest>
+                <attribute name="Main-Class" value="${mainclass}"/>
+		 <attribute name="Class-Path" value="${jar.class.path}"/>
+            </manifest>
+        </jar>
+    </target>
+</project>
