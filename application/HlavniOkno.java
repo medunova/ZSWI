@@ -497,7 +497,7 @@ public class HlavniOkno extends Stage{
 	 */
 	private void ulozData(){
 		try{
-			BufferedWriter soubor = new BufferedWriter(new FileWriter("kategorie.txt"));
+			BufferedWriter soubor = new BufferedWriter(new FileWriter("data/kategorie.txt"));
 
 			for(int i = 0; i < kategorie.size(); i++){												//projde kategorie a uloží je
 				if(i != 0) soubor.newLine();
@@ -507,7 +507,7 @@ public class HlavniOkno extends Stage{
 			soubor.flush();
 			soubor.close();
 
-			soubor = new BufferedWriter(new FileWriter("otazky.txt"));
+			soubor = new BufferedWriter(new FileWriter("data/otazky.txt"));
 
 			for(int i = 0; i < otazky.size(); i++){													//projde otázky a uloží je
 				if(i != 0) soubor.newLine();
