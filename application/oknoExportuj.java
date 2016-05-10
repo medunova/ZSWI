@@ -198,7 +198,7 @@ public class oknoExportuj extends Stage {
 			// poèká 3 vteøiny
 			long mTime = System.currentTimeMillis();
 			long end = mTime + 2000;
-			while (mTime < end) 
+			while (mTime < end)
 			{
 			    mTime = System.currentTimeMillis();
 			}
@@ -217,11 +217,11 @@ public class oknoExportuj extends Stage {
 		String s;
 		int p = 0;
 		try {
-			sc = new Scanner(new File("IDTESTU.txt"));
+			sc = new Scanner(new File("data/IDTESTU.txt"));
 			s = sc.next();
 			p = Integer.parseInt(s) + 1;
 
-			writer = new FileWriter("IDTESTU.txt");
+			writer = new FileWriter("data/IDTESTU.txt");
 			writer.write(Integer.toString(p));
 			writer.close();
 		}
