@@ -85,6 +85,7 @@ public class Generovani {
 				Otazka otazka = nevybraneOtazky.get(nahodneCislo);							//ze seznamu nevybraných otázek se vybere otázka pod náhodnì vygenerovaným indexem
 				if((aktualniPocet + otazka.getPocetBodu()) <= pocet){						//aktuální poèet bodù se seète s poètem bodù nové otázky a porovná se cílovým poètem bodù
 					vybraneOtazky.add(otazka);												//pokud poèet bodù nepøesáhne cílový poèet, pøidá se otázka do vybraných, odebere se z nevybraných a zaktualizuje se aktuální poèet bodù
+
 					nevybraneOtazky.remove(otazka);
 					aktualniPocet += otazka.getPocetBodu();
 				}
@@ -106,6 +107,7 @@ public class Generovani {
 				int nahodneCislo = rnd.nextInt(nevybraneOtazky.size());
 				Otazka otazka = nevybraneOtazky.get(nahodneCislo);
 				vybraneOtazky.add(otazka);
+
 				nevybraneOtazky.remove(otazka);
 			}
 		}
@@ -187,7 +189,7 @@ public class Generovani {
 					Otazka otazka = vybraneOtazky.get(i);
 					int pocetRadku = otazka.getPocetRadkuText() + otazka.getPocetRadkuMisto();						//nastaví se poèet nutných øádkù pro otázku
 					if((prostor - pocetRadku) >= 0){																//vejde-li se otázka do zbývajícího prostoru, doplní se do dokumentu
-						Paragraph otazkaTisk = new Paragraph(++cislo + "." + otazka.getOtazka(), otazkyFont);
+						Paragraph otazkaTisk = new Paragraph(++cislo + "." + otazka.getOtazka()+" ("+otazka.getPocetBodu()+"b.)", otazkyFont);
 						document.add(otazkaTisk);
 						prostor -= pocetRadku;
 						int cisloStranky = writer.getPageNumber();
