@@ -8,8 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 /**
- * Tøída pro spuštìní aplikace
- * @author Aneta Medunová, Tomáš Zobaè, Michal Všelko
+ * TÅ™Ã­da pro spuÅ¡tÄ›nÃ­ aplikace
+ * @author Aneta MedunovÃ¡, TomÃ¡Å¡ ZobaÄ, Michal VÅ¡elko
  *
  */
 public class Aplikace  extends Application{
@@ -18,7 +18,7 @@ public class Aplikace  extends Application{
 
 	public void start(Stage primaryStage){
 		try{
-			sc = new Scanner(new File("data/kategorie.txt"));									//naÄtenÃ­ kategoriÃ­
+			sc = new Scanner(new File("data/kategorie.txt"));									//naÄÂtenÃ­ kategoriÃ­
 			ArrayList<Kategorie> kategorie = new ArrayList<Kategorie>();
 
 			while(sc.hasNextLine()){
@@ -43,16 +43,16 @@ public class Aplikace  extends Application{
 		}
 		catch (FileNotFoundException e){
 			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Naèítání dat.");
-			alert.setHeaderText("Nebyly nalezeny potøebné soubory!");
+			alert.setTitle("NaÄÃ­tÃ¡nÃ­ dat.");
+			alert.setHeaderText("Nebyly nalezeny potÅ™ebnÃ© soubory!");
 			alert.setContentText("Program nenalezl soubor kategorie.txt nebo otazky.txt.");
 			alert.show();
 		}
 		catch (Exception e){
 			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Spuštìní programu.");
-			alert.setHeaderText("Chyba pøi spuštìní programu!");
-			alert.setContentText("Program nebylo moné spustit.");
+			alert.setTitle("SpuÅ¡tÄ›nÃ­ programu.");
+			alert.setHeaderText("Chyba pÅ™i spuÅ¡tÄ›nÃ­ programu!");
+			alert.setContentText("Program nebylo moÅ¾nÃ© spustit.");
 			alert.show();
 			e.printStackTrace();
 		}
