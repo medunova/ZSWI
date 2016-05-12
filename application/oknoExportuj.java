@@ -30,8 +30,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.*;
 /**
- * Tøida pro správu hlavièky testu, vybírání kategorií a klièe pro generování testu
- * @author Aneta Medunova, Michal Všelko a Tomáš Zobaè
+ * TÅ™ida pro sprÃ¡vu hlaviÄky testu, vybÃ­rÃ¡nÃ­ kategoriÃ­ a kliÄe pro generovÃ¡nÃ­ testu
+ * @author Aneta Medunova, Michal VÅ¡elko a TomÃ¡Å¡ ZobaÄ
  *
  */
 public class oknoExportuj extends Stage {
@@ -49,9 +49,9 @@ public class oknoExportuj extends Stage {
 	private FileWriter writer;
 	private Label done;
 /**
- * Konstruktur, kterı pøebirá otázky a jejich kategorie
+ * Konstruktur, kterÃ½ pÅ™ebirÃ¡ otÃ¡zky a jejich kategorie
  * @param kategorie seznam kategorii
- * @param otazky seznam otázek
+ * @param otazky seznam otÃ¡zek
  */
 	public oknoExportuj(ArrayList<Kategorie> kategorie, ArrayList<Otazka> otazky) {
 		this.kategorie = kategorie;
@@ -72,8 +72,8 @@ public class oknoExportuj extends Stage {
 		this.setTitle("Exportovat do pdf");
 	}
 	/**
-	 * Vrací nabídku správy hlavièku testu
-	 * @return vertikální Box
+	 * VracÃ­ nabÃ­dku sprÃ¡vy hlaviÄku testu
+	 * @return vertikÃ¡lnÃ­ Box
 	 */
 
 	private VBox hlavicka() {
@@ -85,27 +85,27 @@ public class oknoExportuj extends Stage {
 		HBox radek3 = new HBox(10);
 
 		institut = new TextField();
-		institut.setText("Fakulta aplikovanıch vìd"); //defaultní nastavení
-		Label text1 = new Label("Škola: ");
+		institut.setText("Fakulta aplikovanÃ½ch vÃ¬d"); //defaultnÃ­ nastavenÃ­
+		Label text1 = new Label("Å kola: ");
 		text1.setId("text1");
 		zkousejici = new TextField();
-		zkousejici.setText("Roman Mouèek"); //defaultní nastavení
-		Label text2 = new Label("Zkoušející: ");
+		zkousejici.setText("Roman MouÄek"); //defaultnÃ­ nastavenÃ­
+		Label text2 = new Label("ZkouÅ¡ejÃ­cÃ­: ");
 		text2.setId("text1");
 		predmet = new TextField();
-		predmet.setText("Základy softwarového inenırství"); //defaultní nastavení
-		Label text5 = new Label("Pøedmìt: ");
+		predmet.setText("ZÃ¡klady softwarovÃ©ho inÅ¾enÃ½rstvÃ­"); //defaultnÃ­ nastavenÃ­
+		Label text5 = new Label("PÅ™edmÄ›t: ");
 		text5.setId("text1");
 
 		datePicker = new DatePicker();
 		 datePicker.setValue(LocalDate.now());
-		String idTestu = idTestu(); //nacitani jednoznaèného ID Testu
+		String idTestu = idTestu(); //nacitani jednoznaÄnÃ©ho ID Testu
 		Label text3 = new Label("ID testu: " + '\t' + idTestu);
 		text3.setId("text1");
 		Label text4 = new Label('\t' + "Datum testu: ");
 		text4.setId("text1");
 
-		choices = vyberKat(); // vıbìr kategorii
+		choices = vyberKat(); // vÃ½bÄ›r kategorii
 
 		radek1.getChildren().addAll(text1,institut,text2,zkousejici);
 		radek2.getChildren().addAll(text5,predmet,text4, datePicker);
@@ -116,9 +116,9 @@ public class oknoExportuj extends Stage {
 		return vbox;
 	}
 	/**
-	 * Vrací nabídku pro vıbìr kritérii pro tvoøení testu. Buï podle poètu otázek,
-	 * nebo poètu bodù
-	 * @return vertikální Box
+	 * VracÃ­ nabÃ­dku pro vÃ½bÄ›r kritÃ©rii pro tvoÅ™enÃ­ testu. BuÄ podle poÄtu otÃ¡zek,
+	 * nebo poÄtu bodÅ¯
+	 * @return vertikÃ¡lnÃ­ Box
 	 */
 
 	private VBox vyber() {
@@ -127,19 +127,19 @@ public class oknoExportuj extends Stage {
 		vbox.setPadding(new Insets(15));
 
 		pocty = new TextField();
-		Label popis = new Label("Zadejte pocet: ");
+		Label popis = new Label("Zadejte poÄet: ");
 		popis.setId("text1"); //vzhled  z *.css souboru
 
-		PBody = new ToggleButton("Poèet bodù");
+		PBody = new ToggleButton("PoÄet bodÅ¯");
 		PBody.setToggleGroup(group);
 		PBody.setSelected(true);
 		PBody.setId("PBody"); //vzhled z *.css souboru
 
-		POtazky = new ToggleButton("Poèet otázek");
+		POtazky = new ToggleButton("PoÄet otÃ¡zek");
 		POtazky.setToggleGroup(group);
 		POtazky.setId("POtazky"); //vzhled  z *.css souboru
 
-		Label text = new Label("Vybrat náhodnì dle: ");
+		Label text = new Label("Vybrat nÃ¡hodnÄ› dle: ");
 		text.setId("text1");
 
 		HBox radek1 = new HBox(10);
@@ -154,10 +154,10 @@ public class oknoExportuj extends Stage {
 		return vbox;
 	}
 	/**
-	 * Vrací tlaèítko pro spuštìní generování testu se zadanımi parametry
-	 * Metoda si nabírá vybrané otázky, údaje z hlavièky (Zkoušející, škola, datum atd.)
-	 * a informaci, jak má vytvoøit test (jetli podle bodù nebo otázek)
-	 * @return vrací tlaèítko a hlášku, e je test hotov
+	 * VracÃ­ tlaÄÃ­tko pro spuÅ¡tÄ›nÃ­ generovÃ¡nÃ­ testu se zadanÃ½mi parametry
+	 * Metoda si nabÃ­rÃ¡ vybranÃ© otÃ¡zky, Ãºdaje z hlaviÄky (ZkouÅ¡ejÃ­cÃ­, Å¡kola, datum atd.)
+	 * a informaci, jak mÃ¡ vytvoÅ™it test (jetli podle bodÅ¯ nebo otÃ¡zek)
+	 * @return vracÃ­ tlaÄÃ­tko a hlÃ¡Å¡ku, Å¾e je test hotov
 	 */
 	private VBox tlacitka() {
 		VBox hbox = new VBox(5);
@@ -172,13 +172,13 @@ public class oknoExportuj extends Stage {
 		return hbox;
 	}
 /**
- * Metoda na vytváøení tlaèítka
- * @return hotové tlaèítko
+ * Metoda na vytvÃ¡Å™enÃ­ tlaÄÃ­tka
+ * @return hotovÃ© tlaÄÃ­tko
  */
 	private Button vytvor() {
-		Button bt = new Button("Vytvoø test");
+		Button bt = new Button("VytvoÅ™ test");
 		bt.setOnAction((ActionEvent e) -> {
-			//Pokud je vybrané tvoøení podle bodù
+			//Pokud je vybranÃ© tvoÅ™enÃ­ podle bodÅ¯
 			if(PBody.isSelected() == true) {
 				try {
 					new Generovani(vybrane, idTestu(), datePicker.getValue(), institut.getText(), zkousejici.getText(), predmet.getText(), true, Integer.parseInt(pocty.getText()));
@@ -187,7 +187,7 @@ public class oknoExportuj extends Stage {
 					e1.printStackTrace();
 				}
 			}
-			//Pokud je vybrané tvoøení podle poètu otázek
+			//Pokud je vybranÃ© tvoÅ™enÃ­ podle poÄtu otÃ¡zek
 			if(POtazky.isSelected() == true) {
 				try {
 					new Generovani(vybrane, idTestu(), datePicker.getValue(), institut.getText(), zkousejici.getText(), predmet.getText(), false, Integer.parseInt(pocty.getText()));
@@ -198,26 +198,26 @@ public class oknoExportuj extends Stage {
 			}
 			Alert inform = new Alert(AlertType.INFORMATION);
 			inform.setTitle("Hotovo");
-			inform.setHeaderText("Váš test byl vytvoøen");
+			inform.setHeaderText("VÃ¡Å¡ test byl vytvoÅ™en");
 
-			inform.show(); // ukáe informaèní okno
-			// poèká 3 vteøiny
+			inform.show(); // ukÃ¡Å¾e informaÄnÃ­ okno
+			// poÄkÃ¡ 3 vteÅ™iny
 			long mTime = System.currentTimeMillis();
 			long end = mTime + 2000;
 			while (mTime < end)
 			{
 			    mTime = System.currentTimeMillis();
 			}
-			//a pak okno zavøe
+			//a pak okno zavÅ™e
 			inform.close();
 		});
 
 		return bt;
 	}
 /**
- * Metoda, která si naèítá informaci o ID testu. Po naètení inkrementuje poèítadlo
- * pro další naèítání.
- * @return vrací jednoznaèné ID testu.
+ * Metoda, kterÃ¡ si naÄÃ­tÃ¡ informaci o ID testu. Po naÄtenÃ­ inkrementuje poÄÃ­tadlo
+ * pro dalÅ¡Ã­ naÄÃ­tÃ¡nÃ­.
+ * @return vracÃ­ jednoznaÄnÃ© ID testu.
  */
 	private String idTestu() {
 		String s;
@@ -233,17 +233,17 @@ public class oknoExportuj extends Stage {
 		}
 		catch (Exception e) {
 			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Naètení ID testu");
+			alert.setTitle("NaÄtenÃ­ ID testu");
 			alert.setHeaderText("Soubor nenalezen");
 
 			alert.showAndWait();
 		}
-		s = "ZSWI2016" + String.format("%03d", p); //pro správnı poèet èísel
+		s = "ZSWI2016" + String.format("%03d", p); //pro sprÃ¡vnÃ½ poÃ¨et Ã¨Ã­sel
 		return s;
 	}
 /**
- * Vrací ComboBox s chooseBoxy, ve kterıch se vybírají kategorie. Oznaèením nebo odznaèením
- * dané kategorie se upraví sada otázek, ze kterıch se bude následnì tisknout
+ * VracÃ­ ComboBox s chooseBoxy, ve kterÃ½ch se vybÃ­rajÃ­ kategorie. OznaÄenÃ­m nebo odznaÄenÃ­m
+ * danÃ© kategorie se upravÃ­ sada otÃ¡zek, ze kterÃ½ch se bude nÃ¡slednÄ› tisknout
  * @return ComBoBox s ChooseBoxy.
  */
 	private MenuButton vyberKat() {
@@ -258,7 +258,7 @@ public class oknoExportuj extends Stage {
 
         vyber.getItems().addAll(checkItems);
 
-          // spravuje odznaèení a oznaèení kategorií
+          // spravuje odznaÄenÃ­ a oznaÄenÃ­ kategoriÃ­
         final ListView<String> selectedItems = new ListView<>();
         for (final CheckMenuItem item : checkItems) {
             item.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -278,9 +278,9 @@ public class oknoExportuj extends Stage {
         return vyber;
 	}
 	/**
-	 * Metoda pro odebírání otázek ze sady pro generování
-	 * @param idKat - èíslo kategorie
-	 * @return vrací upravenou sadu otázek
+	 * Metoda pro odebÃ­rÃ¡nÃ­ otÃ¡zek ze sady pro generovÃ¡nÃ­
+	 * @param idKat - ÄÃ­slo kategorie
+	 * @return vracÃ­ upravenou sadu otÃ¡zek
 	 */
 	private ArrayList<Otazka> odeberKat(int idKat) {
 	ArrayList<Otazka> pomocny = new ArrayList<Otazka>(); 						//Array pro odebirane otazky
@@ -295,9 +295,9 @@ public class oknoExportuj extends Stage {
 		return vybrane;
 	}
 	/**
-	 * Metoda pro vracení otázek do sady.
-	 * @param idKat èíslo kategorie
-	 * @return vrací upravenou sadu otázek
+	 * Metoda pro vracenÃ­ otÃ¡zek do sady.
+	 * @param idKat ÄÃ­slo kategorie
+	 * @return vracÃ­ upravenou sadu otÃ¡zek
 	 */
 	private ArrayList<Otazka> pridejKat(int idKat) {
 		for (int i=0; i<otazky.size();i++) {
