@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
@@ -34,86 +35,86 @@ import javafx.stage.WindowEvent;
 import javafx.util.converter.IntegerStringConverter;
 
 /**
- * Tøída hlavního okna editace otázek a kategorií
- * @author Aneta Medunová, Tomáš Zobaè, Michal Všelko
+ * TÅ™Ã­da hlavnÃ­ho okna editace otÃ¡zek a kategoriÃ­
+ * @author Aneta MedunovÃ¡, TomÃ¡Å¡ ZobaÄ, Michal VÅ¡elko
  *
  */
 public class HlavniOkno extends Stage{
 
-	private ArrayList<Otazka> otazky;				//seznam otázek
-	private ArrayList<Kategorie> kategorie;			//seznam kategorií
-	private ArrayList<Otazka> aktualniOtazky;		//seznam aktuálnì zobrazenıch otázek
-	private TreeView<Object> strom;					//strom kategorií - levı panel
-	private TableView<Otazka> table;				//tabulka zobrazenıch otázek - støední panel
-	private BorderPane bPane;						//panel rozvrení okna
+	private ArrayList<Otazka> otazky;				//seznam otÃ¡zek
+	private ArrayList<Kategorie> kategorie;			//seznam kategoriÃ­
+	private ArrayList<Otazka> aktualniOtazky;		//seznam aktuÃ¡lnÄ› zobrazenÃ½ch otÃ¡zek
+	private TreeView<Object> strom;					//strom kategoriÃ­ - levÃ½ panel
+	private TableView<Otazka> table;				//tabulka zobrazenÃ½ch otÃ¡zek - stÅ™ednÃ­ panel
+	private BorderPane bPane;						//panel rozvrÅ¾enÃ­ okna
 
 	/**
-	 * Konstruktor tøídy - nastaví panely, velikost okna, titulek a akci po zavøení okna
-	 * @param kategorie	seznam kategorií
-	 * @param otazky seznam otázek
+	 * Konstruktor tÅ™Ã­dy - nastavÃ­ panely, velikost okna, titulek a akci po zavÅ™enÃ­ okna
+	 * @param kategorie	seznam kategoriÃ­
+	 * @param otazky seznam otÃ¡zek
 	 */
 	public HlavniOkno(ArrayList<Kategorie> kategorie, ArrayList<Otazka> otazky){
 		super();
 		this.kategorie = kategorie;
 		this.otazky = otazky;
-		this.aktualniOtazky = (ArrayList<Otazka>) otazky.clone(); 					//pøi spuštìní se zobrazují všechny otázky
+		this.aktualniOtazky = (ArrayList<Otazka>) otazky.clone(); 					//pÅ™i spuÅ¡tÄ›nÃ­ se zobrazujÃ­ vÅ¡echny otÃ¡zky
 
 		bPane = new BorderPane();
 
-		bPane.setLeft(getLeftPane());												//nastaví levı panel metodou getLeftPane()
-		bPane.setCenter(getCenterPane());											//nastaví støední panel metodou getCenterPane()
-		bPane.setRight(getRightPane());												//nastaví pravı panel metodou getRightPane()
-		bPane.setTop(getTopPane());													//nastaví horní panel metodou getTopPane()
-		bPane.setBottom(getBottomPane());											//nastaví dolní panel metodou getBottomPane()
+		bPane.setLeft(getLeftPane());												//nastavÃ­ levÃ½ panel metodou getLeftPane()
+		bPane.setCenter(getCenterPane());											//nastavÃ­ stÅ™ednÃ­ panel metodou getCenterPane()
+		bPane.setRight(getRightPane());												//nastavÃ­ pravÃ½ panel metodou getRightPane()
+		bPane.setTop(getTopPane());													//nastavÃ­ hornÃ­ panel metodou getTopPane()
+		bPane.setBottom(getBottomPane());											//nastavÃ­ dolnÃ­ panel metodou getBottomPane()
 
-		Scene scene = new Scene(bPane, 1200, 600);									//velikost okna
+		Scene scene = new Scene(bPane, 1250, 600);									//velikost okna
 		this.setScene(scene);
 		scene.getStylesheets().add(HlavniOkno.class.getResource("vzhled.css").toExternalForm());
 
-		this.setTitle("Generování otázek");											//nastavení titulku
-		this.show();																//zobrazení okna
-		this.setOnCloseRequest(new EventHandler<WindowEvent>(){						//nastaví akci pøi uzavøení okna
+		this.setTitle("GenerovÃ¡nÃ­ otÃ¡zek");											//nastavenÃ­ titulku
+		this.show();																//zobrazenÃ­ okna
+		this.setOnCloseRequest(new EventHandler<WindowEvent>(){						//nastavÃ­ akci pÅ™i uzavÅ™enÃ­ okna
 
 			@Override
 			public void handle(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				ulozData();															//pøi zavøení okna se uloí data do souborù otazky.txt a kategorie.txt
+				ulozData();															//pÅ™i zavÅ™enÃ­ okna se uloÅ¾Ã­ data do souborÅ¯ otazky.txt a kategorie.txt
 			}
 
 		});
 	}
 
 	/**
-	 * Vrací horizontální box pro nastavení horního panelu
-	 * @return horizontální box (tøída HBox)
+	 * VracÃ­ horizontÃ¡lnÃ­ box pro nastavenÃ­ hornÃ­ho panelu
+	 * @return horizontÃ¡lnÃ­ box (tÅ™Ã­da HBox)
 	 */
 	private HBox getTopPane(){
 		HBox box = new HBox();
 
 		Font fntNadpis = new Font("Arial", 20);										//font pro nadpis
-		Label lblNadpis = new Label("Generování otázek");							//vytvoení nadpisu
-		lblNadpis.setFont(fntNadpis);												//nastavení fontu nadpistu
+		Label lblNadpis = new Label("GenerovÃ¡nÃ­ otÃ¡zek");							//vytvoenÃ­ nadpisu
+		lblNadpis.setFont(fntNadpis);												//nastavenÃ­ fontu nadpistu
 
-		box.getChildren().add(lblNadpis);											//vloení nadpisu do boxu
-		box.setPadding(new Insets(10));												//nastavení odsaení kolem boxu
-		box.setAlignment(Pos.BOTTOM_CENTER);										//nastavení pozice boxu
+		box.getChildren().add(lblNadpis);											//vloÅ¾enÃ­ nadpisu do boxu
+		box.setPadding(new Insets(10));												//nastavenÃ­ odsaenÃ­ kolem boxu
+		box.setAlignment(Pos.BOTTOM_CENTER);										//nastavenÃ­ pozice boxu
 
 		return box;
 	}
 
 	/**
-	 * Vrací horizontální box pro nastavení dolního panelu
-	 * @return horizontální box (tøída HBox)
+	 * VracÃ­ horizontÃ¡lnÃ­ box pro nastavenÃ­ dolnÃ­ho panelu
+	 * @return horizontÃ¡lnÃ­ box (tÅ™Ã­da HBox)
 	 */
 	private HBox getBottomPane(){
 		HBox box = new HBox();
-		Button generovat = new Button("Generovat test");								//vytvoøení tlaèítka pro spuštìní generování testu
+		Button generovat = new Button("Generovat test");								//vytvoÅ™enÃ­ tlaÄÃ­tka pro spuÅ¡tÄ›nÃ­ generovÃ¡nÃ­ testu
 		generovat.setId("tisk");
-		generovat.setPrefWidth(150);													//nastavení velikosti tlaèítka
-		generovat.setOnAction(new EventHandler<ActionEvent>(){							//nastavení akce po kliknutí na tlaèítko generovat
+		generovat.setPrefWidth(150);													//nastavenÃ­ velikosti tlaÄÃ­tka
+		generovat.setOnAction(new EventHandler<ActionEvent>(){							//nastavenÃ­ akce po kliknutÃ­ na tlaÄÃ­tko generovat
 
 			@Override
-			public void handle(ActionEvent event) {										//spuštìní generování testu
+			public void handle(ActionEvent event) {										//spuÅ¡tÄ›nÃ­ generovÃ¡nÃ­ testu
 				// TODO Auto-generated method stub
 				ulozData();
 				oknoExportuj export = new oknoExportuj(kategorie, otazky);
@@ -130,18 +131,18 @@ public class HlavniOkno extends Stage{
 	}
 
 	/**
-	 * Vrací vertikální box pro nastavení levého panelu
-	 * @return vertikální box (tøída VBox)
+	 * VracÃ­ vertikÃ¡lnÃ­ box pro nastavenÃ­ levÃ©ho panelu
+	 * @return vertikÃ¡lnÃ­ box (tÅ™Ã­da VBox)
 	 */
 	private VBox getLeftPane(){
 		VBox box = new VBox();
 
-		nastavStrom();																	//nastavení strom levého panelu (seznam kategorií) metodou nastavStrom()
+		nastavStrom();																	//nastavenÃ­ strom levÃ©ho panelu (seznam kategoriÃ­) metodou nastavStrom()
 
-		Button pridej = new Button("Pøidej kategorii");									//vytvoøí tlaèítko pro pøidání kategorie
-		Button odeber = new Button("Odeber kategorii");									//vytvoøí tlaèítko pro odebrání kategorie
+		Button pridej = new Button("PÅ™idej kategorii");									//vytvoÅ™Ã­ tlaÄÃ­tko pro pÅ™idÃ¡nÃ­ kategorie
+		Button odeber = new Button("Odeber kategorii");									//vytvoÅ™Ã­ tlaÄÃ­tko pro odebrÃ¡nÃ­ kategorie
 		odeber.setId("tisk");
-		odeber.setOnAction(new EventHandler<ActionEvent>(){								//akce pro odebrání kategorie
+		odeber.setOnAction(new EventHandler<ActionEvent>(){								//akce pro odebrÃ¡nÃ­ kategorie
 
 			@Override
 			public void handle(ActionEvent arg0) {
@@ -152,12 +153,12 @@ public class HlavniOkno extends Stage{
 		});
 
 		pridej.setId("tisk");
-		pridej.setOnAction(new EventHandler<ActionEvent>(){								//akce pro pøidání kategorií
+		pridej.setOnAction(new EventHandler<ActionEvent>(){								//akce pro pÅ™idÃ¡nÃ­ kategoriÃ­
 
 			@Override
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
-				pridejKategorii();														//pøidá se nová kategorie
+				pridejKategorii();														//pÅ™idÃ¡ se novÃ¡ kategorie
 			}
 
 		});
@@ -173,40 +174,63 @@ public class HlavniOkno extends Stage{
 	};
 
 	/**
-	 * Vrací vertikální box pro nastavení pravého panelu
-	 * @return vertikální box (tøída VBox)
+	 * VracÃ­ vertikÃ¡lnÃ­ box pro nastavenÃ­ pravÃ©ho panelu
+	 * @return vertikÃ¡lnÃ­ box (tÅ™Ã­da VBox)
 	 */
 	private VBox getRightPane(){
 		VBox box = new VBox();
 
-		Button pridej = new Button("Pøidej otázku");									//vytvoøí tlaèítko pro pøídání otázky
-		Button odeber = new Button("Odeber otázku");									//vytvoøí tlaèítko pro odebrání otázky
-		pridej.setPrefWidth(150);														//nastavení šíøky tlaèítek
+		Button pridej = new Button("PÅ™idej otÃ¡zku");									//vytvoÅ™Ã­ tlaÄÃ­tko pro pÅ™Ã­dÃ¡nÃ­ otÃ¡zky
+		Button odeber = new Button("Odeber otÃ¡zku");									//vytvoÅ™Ã­ tlaÄÃ­tko pro odebrÃ¡nÃ­ otÃ¡zky
+		Button zmenKategorii = new Button("ZmÄ›Åˆ kategorii");									//vytvoÅ™Ã­ tlaÄÃ­tko pro odebrÃ¡nÃ­ otÃ¡zky
+		pridej.setPrefWidth(150);														//nastavenÃ­ Å¡Ã­Å™ky tlaÄÃ­tek
 		pridej.setId("tisk");
 		odeber.setPrefWidth(150);														//vzhled z *.css souboru
 		odeber.setId("tisk");
-
-		odeber.setOnAction(new EventHandler<ActionEvent>(){								//nastaví akci pro odebrání otázky
+		zmenKategorii.setPrefWidth(150);														
+		zmenKategorii.setId("tisk");
+			
+		zmenKategorii.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Otazka otazka = table.getSelectionModel().getSelectedItem();													//najde vybranou otÃ¡zku
+				if(otazka != null){
+					ChoiceDialog<Kategorie> zmenaKategorie = new ChoiceDialog<>(kategorie.get(0), kategorie);
+					zmenaKategorie.setTitle("ZmÄ›na kategorie.");
+					zmenaKategorie.setHeaderText("Vyberte novou kategorii");
+					zmenaKategorie.setContentText("NovÃ¡ kategorie:");
+					Optional<Kategorie> result = zmenaKategorie.showAndWait();
+					if(result.isPresent()){
+						otazka.setIdKategorie(result.get().getIdKategorie());
+						updateLeftPane();
+					}
+				}
+			}
+			
+		});
+		
+		odeber.setOnAction(new EventHandler<ActionEvent>(){								//nastavÃ­ akci pro odebrÃ¡nÃ­ otÃ¡zky
 
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				odeberOtazku();															//odebere otázku
+				odeberOtazku();															//odebere otÃ¡zku
 			}
 
 		});
 
-		pridej.setOnAction(new EventHandler<ActionEvent>(){								//nastaví akci pro pøidání otázky
+		pridej.setOnAction(new EventHandler<ActionEvent>(){								//nastavÃ­ akci pro pÅ™idÃ¡nÃ­ otÃ¡zky
 
 			@Override
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
-				pridejOtazku();															//pøidání otázky
+				pridejOtazku();															//pÅ™idÃ¡nÃ­ otÃ¡zky
 			}
 
 		});
 
-		box.getChildren().addAll(odeber, pridej);
+		box.getChildren().addAll(odeber, pridej, zmenKategorii);
 		box.setSpacing(10);
 		box.setPadding(new Insets(30, 10, 10, 10));
 		return box;
@@ -214,22 +238,22 @@ public class HlavniOkno extends Stage{
 	};
 
 	/**
-	 * Vrací tabulku se seznamem otázek pro nastavení centrálního panelu
-	 * @return tabulku se seznamem otázek
+	 * VracÃ­ tabulku se seznamem otÃ¡zek pro nastavenÃ­ centrÃ¡lnÃ­ho panelu
+	 * @return tabulku se seznamem otÃ¡zek
 	 */
 	private TableView getCenterPane(){
 		table = new TableView();
 
-		TableColumn<Otazka, Integer> id = new TableColumn("Id");											//nastavení sloupcù tabulky
-		TableColumn<Otazka, String> nazev = new TableColumn("Otázka");
-		TableColumn<Otazka, Integer> pocetBodu = new TableColumn("Poèet bodù");
-		TableColumn<Otazka, Integer> misto = new TableColumn("Potøebné místo");
+		TableColumn<Otazka, Integer> id = new TableColumn("Id");											//nastavenÃ­ sloupcÅ¯ tabulky
+		TableColumn<Otazka, String> nazev = new TableColumn("OtÃ¡zka");
+		TableColumn<Otazka, Integer> pocetBodu = new TableColumn("PoÄet bodÅ¯");
+		TableColumn<Otazka, Integer> misto = new TableColumn("PotÅ™ebnÃ© mÃ­sto");
 
-		table.getColumns().addAll(id, nazev, pocetBodu, misto);												//vloení sloupcù do tabulky
-		table.setItems(FXCollections.observableList(aktualniOtazky));										//vloení dat do tabulky (zobrazují se pouze nìkteré otázky - proto arraylist aktualniOtazky)
+		table.getColumns().addAll(id, nazev, pocetBodu, misto);												//vloÅ¾enÃ­ sloupcÅ¯ do tabulky
+		table.setItems(FXCollections.observableList(aktualniOtazky));										//vloÅ¾enÃ­ dat do tabulky (zobrazujÃ­ se pouze nÄ›kterÃ© otÃ¡zky - proto arraylist aktualniOtazky)
 
 
-		id.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));					//nastavení typù bunìk
+		id.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));					//nastavenÃ­ typÅ¯ bunÄ›k
 		nazev.setCellFactory(TextFieldTableCell.forTableColumn());
 		pocetBodu.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 		misto.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
@@ -239,47 +263,47 @@ public class HlavniOkno extends Stage{
 		pocetBodu.setCellValueFactory(new PropertyValueFactory<>("pocetBodu"));
 		misto.setCellValueFactory(new PropertyValueFactory<>("misto"));
 
-		nazev.setOnEditCommit(event -> {																						//nastavení akce pøi zmìnì hodnoty ve sloupci s textem otázky
-			((Otazka)event.getTableView().getItems().get(event.getTablePosition().getRow())).setOtazka(event.getNewValue());	//nastaví se novı text v otázce funkcí setOtazka(String otazka)
+		nazev.setOnEditCommit(event -> {																						//nastavenÃ­ akce pÅ™i zmÄ›nÄ› hodnoty ve sloupci s textem otÃ¡zky
+			((Otazka)event.getTableView().getItems().get(event.getTablePosition().getRow())).setOtazka(event.getNewValue());	//nastavÃ­ se novÃ½ text v otÃ¡zce funkcÃ­ setOtazka(String otazka)
 		});
 
-		pocetBodu.setOnEditCommit(event -> {																					//nastavení akce pøi zmìnì hodnoty ve sloupci s poètem bodù
+		pocetBodu.setOnEditCommit(event -> {																					//nastavenÃ­ akce pÅ™i zmÄ›nÄ› hodnoty ve sloupci s poÄtem bodÅ¯
 			((Otazka)event.getTableView().getItems().get(event.getTablePosition().getRow())).setPocetBodu(event.getNewValue());
 		});
 
-		misto.setOnEditCommit(event -> {																						//nastavení akce pøi zmìnì hodnoty ve sloupci s velikostí místa
+		misto.setOnEditCommit(event -> {																						//nastavenÃ­ akce pÅ™i zmÄ›nÄ› hodnoty ve sloupci s velikostÃ­ mÃ­sta
 			((Otazka)event.getTableView().getItems().get(event.getTablePosition().getRow())).setMisto(event.getNewValue());
 		});
 
-		id.setEditable(false);																				//id se nesmí mìnit
-		nazev.setPrefWidth(547);																			//nastavení šíøky textu otázky
-		table.setEditable(true);																			//mimo sloupce id jsou ostatní editovatelné
+		id.setEditable(false);																				//id se nesmÃ­ mÄ›nit
+		nazev.setPrefWidth(547);																			//nastavenÃ­ Å¡Ã­Å™ky textu otÃ¡zky
+		table.setEditable(true);																			//mimo sloupce id jsou ostatnÃ­ editovatelnÃ©
 
 		return table;
 	}
 
 	/**
-	 * Nastavení stromu se seznamem kategorií v pravém panelu
+	 * NastavenÃ­ stromu se seznamem kategoriÃ­ v pravÃ©m panelu
 	 */
 	private void nastavStrom(){
-		TreeItem<Object> seznamKategorii = new TreeItem<Object>("Seznam kategorií");						//vytvoøení koøenového uzlu
-		seznamKategorii.setExpanded(true);																	//koøen bude pøi spuštìní otevøenı
-		for(int i = 0; i < kategorie.size(); i++){															//projde všechny kategorie v arraylistu a voí je do koøene
+		TreeItem<Object> seznamKategorii = new TreeItem<Object>("Seznam kategoriÃ­");						//vytvoÅ™enÃ­ koÅ™enovÃ©ho uzlu
+		seznamKategorii.setExpanded(true);																	//koÅ™en bude pÅ™i spuÅ¡tÄ›nÃ­ otevÅ™enÃ½
+		for(int i = 0; i < kategorie.size(); i++){															//projde vÅ¡echny kategorie v arraylistu a voÅ¾Ã­ je do koÅ™ene
 			seznamKategorii.getChildren().add(new TreeItem<Object>(kategorie.get(i)));
 		}
 
-		strom = new TreeView<Object>(seznamKategorii);														//vytvoøí novı strom s vytvoøenım koøenem
-		strom.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);									//mùe se oznaèit pouze jeden uzel v jednom okamiku
-		naplnData();																						//naplní data tabulky se seznamem otázek
+		strom = new TreeView<Object>(seznamKategorii);														//vytvoÅ™Ã­ novÃ½ strom s vytvoÅ™enÃ½m koÅ™enem
+		strom.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);									//mÅ¯Å¾e se oznaÄit pouze jeden uzel v jednom okamÅ¾iku
+		naplnData();																						//naplnÃ­ data tabulky se seznamem otÃ¡zek
 
-		strom.setOnMouseClicked(new EventHandler<MouseEvent>(){												//nastaví akci po kliknutí myší ve stromu
+		strom.setOnMouseClicked(new EventHandler<MouseEvent>(){												//nastavÃ­ akci po kliknutÃ­ myÅ¡Ã­ ve stromu
 
 			public void handle(MouseEvent event) {
 				// TODO Auto-generated method stub
 				if(event.getClickCount() == 1 || strom.getRoot().equals(strom.getSelectionModel().getSelectedItem()))
-					naplnData();																			//klikne-li se jednou nebo se kliká na koøen stromu, nastaví se seznam otázek k dané kategorii
+					naplnData();																			//klikne-li se jednou nebo se klikÃ¡ na koÅ™en stromu, nastavÃ­ se seznam otÃ¡zek k danÃ© kategorii
 				else{
-					zmenNazevKategorie();																	//klikne-li se vícekrát, pøejde se k editaci názvu kategorie
+					zmenNazevKategorie();																	//klikne-li se vÃ­cekrÃ¡t, pÅ™ejde se k editaci nÃ¡zvu kategorie
 				}
 			}
 
@@ -287,70 +311,70 @@ public class HlavniOkno extends Stage{
 	}
 
 	/**
-	 * Naplní tabulku seznamem otázek aktuálnì k zobrazení
+	 * NaplnÃ­ tabulku seznamem otÃ¡zek aktuÃ¡lnÄ› k zobrazenÃ­
 	 */
 	private void naplnData(){
-		TreeItem<Object> vybranaKategorie = strom.getSelectionModel().getSelectedItem();					//zjistí aktuálnì vybranou kategorii
+		TreeItem<Object> vybranaKategorie = strom.getSelectionModel().getSelectedItem();					//zjistÃ­ aktuÃ¡lnÄ› vybranou kategorii
 		if(vybranaKategorie != null){
-			aktualniOtazky.clear();																			//vyèistí arraylist pro aktuálnì zobrazené otázky
+			aktualniOtazky.clear();																			//vyÄistÃ­ arraylist pro aktuÃ¡lnÄ› zobrazenÃ© otÃ¡zky
 			if(strom.getRoot().equals(vybranaKategorie)){
-				aktualniOtazky = (ArrayList<Otazka>)otazky.clone();											//je-li vybranı koøen, zobrazí se všechny otázky
+				aktualniOtazky = (ArrayList<Otazka>)otazky.clone();											//je-li vybranÃ½ koÅ™en, zobrazÃ­ se vÅ¡echny otÃ¡zky
 			}
 			else{
-				for(int i = 0; i < otazky.size(); i++){														//není-li vybranı koøen, projdou se všechny otázky a do arraylistu aktualniOtazky se vloí ty co mají stejnou kategorii jako je ta vybraná
+				for(int i = 0; i < otazky.size(); i++){														//nenÃ­-li vybranÃ½ koÅ™en, projdou se vÅ¡echny otÃ¡zky a do arraylistu aktualniOtazky se vloÅ¾Ã­ ty co majÃ­ stejnou kategorii jako je ta vybranÃ¡
 					if(otazky.get(i).getIdKategorie() == ((Kategorie)vybranaKategorie.getValue()).getIdKategorie())
 						aktualniOtazky.add(otazky.get(i));
 				}
 			}
 		}
-		updateCenterPane();																					//znovu se naète centrální panel pro aktualizaci dat
+		updateCenterPane();																					//znovu se naÄte centrÃ¡lnÃ­ panel pro aktualizaci dat
 	}
 
 	/**
-	 * Zaktualizuje levı panel
+	 * Zaktualizuje levÃ½ panel
 	 */
 	public void updateLeftPane(){
 		bPane.setLeft(getLeftPane());
 	}
 
 	/**
-	 * Zaktualizuje centrální panel
+	 * Zaktualizuje centrÃ¡lnÃ­ panel
 	 */
 	public void updateCenterPane(){
 		bPane.setCenter(getCenterPane());
 	}
 
 	/**
-	 * Metoda pro odebrání kategorie
+	 * Metoda pro odebrÃ¡nÃ­ kategorie
 	 */
 	private void odeberKategorii(){
-		if(strom.getSelectionModel().getSelectedIndex() > 0){															//testuje zda se neodebírá koøen stromu
-			Kategorie vybranaKategorie = (Kategorie)strom.getSelectionModel().getSelectedItem().getValue();				//zjistí vybranou kategorii
+		if(strom.getSelectionModel().getSelectedIndex() > 0){															//testuje zda se neodebÃ­rÃ¡ koÅ™en stromu
+			Kategorie vybranaKategorie = (Kategorie)strom.getSelectionModel().getSelectedItem().getValue();				//zjistÃ­ vybranou kategorii
 
-			Alert alert = new Alert(AlertType.CONFIRMATION);															//hláška zda se opravdu má kategorie odebrat
-			alert.setTitle("Odebrání kategorie");
-			alert.setHeaderText("Skuteènì chcete odebrat kategorii " + vybranaKategorie.getNazev());
+			Alert alert = new Alert(AlertType.CONFIRMATION);															//hlÃ¡Å¡ka zda se opravdu mÃ¡ kategorie odebrat
+			alert.setTitle("OdebrÃ¡nÃ­ kategorie");
+			alert.setHeaderText("SkuteÄnÄ› chcete odebrat kategorii " + vybranaKategorie.getNazev());
 
 			ButtonType buttonTypeAno = new ButtonType("Ano");
 			ButtonType buttonTypeNe = new ButtonType("Ne");
 
 			alert.getButtonTypes().setAll(buttonTypeNe, buttonTypeAno);
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == buttonTypeAno){																			//je-li vybráno Ano pøejde se k odebrání kategorie
-				if(aktualniOtazky.size() == 0){ 																		//kategorie nesmí mít uloené otázky
-					for(int i = 0; i < kategorie.size(); i++){															//projdou se kategorie a vybraná se odstraní
+			if (result.get() == buttonTypeAno){																			//je-li vybrÃ¡no Ano pÅ™ejde se k odebrÃ¡nÃ­ kategorie
+				if(aktualniOtazky.size() == 0){ 																		//kategorie nesmÃ­ mÃ­t uloÅ¾enÃ© otÃ¡zky
+					for(int i = 0; i < kategorie.size(); i++){															//projdou se kategorie a vybranÃ¡ se odstranÃ­
 						if(kategorie.get(i) == vybranaKategorie){
 							kategorie.remove(i);
 							break;
 						}
 					}
-					updateLeftPane();																					//zaktualizuje se levı panel
+					updateLeftPane();																					//zaktualizuje se levÃ½ panel
 				}
 				else {
 					alert = new Alert(AlertType.ERROR);
-					alert.setTitle("Odebrání kategorie");
-					alert.setHeaderText("Kategorie obsahuje otázky!");
-					alert.setContentText("Odeberte z kategorie nejprve otázky a poté ji zkuste odebrat znovu.");
+					alert.setTitle("OdebrÃ¡nÃ­ kategorie");
+					alert.setHeaderText("Kategorie obsahuje otÃ¡zky!");
+					alert.setContentText("Odeberte z kategorie nejprve otÃ¡zky a potÃ© ji zkuste odebrat znovu.");
 					alert.show();
 				}
 			}
@@ -358,15 +382,15 @@ public class HlavniOkno extends Stage{
 	}
 
 	/**
-	 * Pøidá novou kategorii
+	 * PÅ™idÃ¡ novou kategorii
 	 */
 	private void pridejKategorii(){
-		TextInputDialog dialog = new TextInputDialog();																	//okno pro zadání názvu nové kategorie
-		dialog.setTitle("Pøidání kategorie");
-		dialog.setHeaderText("Zadejte název kategorie");
-		dialog.setContentText("Název kategorie: ");
+		TextInputDialog dialog = new TextInputDialog();																	//okno pro zadÃ¡nÃ­ nÃ¡zvu novÃ© kategorie
+		dialog.setTitle("PÅ™idÃ¡nÃ­ kategorie");
+		dialog.setHeaderText("Zadejte nÃ¡zev kategorie");
+		dialog.setContentText("NÃ¡zev kategorie: ");
 
-		ButtonType buttonTypeAno = new ButtonType("Pøidat kategorii", ButtonData.OK_DONE);
+		ButtonType buttonTypeAno = new ButtonType("PÅ™idat kategorii", ButtonData.OK_DONE);
 		dialog.getDialogPane().getButtonTypes().clear();
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeAno);
 
@@ -379,15 +403,15 @@ public class HlavniOkno extends Stage{
 					break;
 				}
 			}
-			if(!nalezeno){																								//pokud není nalezen stejnı název v jiné kategorii, uloí se nová kategorie
+			if(!nalezeno){																								//pokud nenÃ­ nalezen stejnÃ½ nÃ¡zev v jinÃ© kategorii, uloÅ¾Ã­ se novÃ¡ kategorie
 				kategorie.add(new Kategorie(this.getNoveId(kategorie, false) , result.get()));
 				updateLeftPane();
 			}
 			else {
 				Alert alert = new Alert(AlertType.ERROR);
-				alert.setTitle("Pøidání kategorie");
-				alert.setHeaderText("Nalezen stejnı název kategorie!");
-				alert.setContentText("Kategorie s tímto názvem ji existuje. Zadejte jinı název kategorie.");
+				alert.setTitle("PÅ™idÃ¡nÃ­ kategorie");
+				alert.setHeaderText("Nalezen stejnÃ½ nÃ¡zev kategorie!");
+				alert.setContentText("Kategorie s tÃ­mto nÃ¡zvem jiÅ¾ existuje. Zadejte jinÃ½ nÃ¡zev kategorie.");
 				alert.showAndWait();
 				pridejKategorii();
 			}
@@ -395,16 +419,16 @@ public class HlavniOkno extends Stage{
 	}
 
 	/**
-	 * Editace názvu kategorie
+	 * Editace nÃ¡zvu kategorie
 	 */
 	private void zmenNazevKategorie(){
-		TextInputDialog dialog = new TextInputDialog();																	//okno pro novı název kategorie
-		dialog.setTitle("Zmìna názvu kategorie");
-		dialog.setHeaderText("Zadejte název kategorie");
-		dialog.setContentText("Název kategorie: ");
+		TextInputDialog dialog = new TextInputDialog();																	//okno pro novÃ½ nÃ¡zev kategorie
+		dialog.setTitle("ZmÄ›na nÃ¡zvu kategorie");
+		dialog.setHeaderText("Zadejte nÃ¡zev kategorie");
+		dialog.setContentText("NÃ¡zev kategorie: ");
 		dialog.getEditor().setText(((Kategorie)strom.getSelectionModel().getSelectedItem().getValue()).getNazev());
 
-		ButtonType buttonTypeAno = new ButtonType("Zmìò název", ButtonData.OK_DONE);
+		ButtonType buttonTypeAno = new ButtonType("ZmÄ›Åˆ nÃ¡zev", ButtonData.OK_DONE);
 		dialog.getDialogPane().getButtonTypes().clear();
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeAno);
 
@@ -417,52 +441,52 @@ public class HlavniOkno extends Stage{
 					break;
 				}
 			}
-			if(!nalezeno){																								//pokud není nalezen stejnı název, pøejde se ke zmìnì názvu kategorie
+			if(!nalezeno){																								//pokud nenÃ­ nalezen stejnÃ½ nÃ¡zev, pÅ™ejde se ke zmÄ›nÄ› nÃ¡zvu kategorie
 				((Kategorie)strom.getSelectionModel().getSelectedItem().getValue()).setNazev(result.get());
 				updateLeftPane();
 			}
 			else {
 				Alert alert = new Alert(AlertType.ERROR);
-				alert.setTitle("Zmìna názvu kategorie");
-				alert.setHeaderText("Nalezen stejnı název kategorie!");
-				alert.setContentText("Kategorie s tímto názvem ji existuje. Zadejte jinı název kategorie.");
+				alert.setTitle("ZmÄ›na nÃ¡zvu kategorie");
+				alert.setHeaderText("Nalezen stejnÃ½ nÃ¡zev kategorie!");
+				alert.setContentText("Kategorie s tÃ­mto nÃ¡zvem jiÅ¾ existuje. Zadejte jinÃ½ nÃ¡zev kategorie.");
 				alert.showAndWait();
-				zmenNazevKategorie();																					//je-li nelzen stejnı název, vypíše se chybová hláška a okno se spustí znovu
+				zmenNazevKategorie();																					//je-li nelzen stejnÃ½ nÃ¡zev, vypÃ­Å¡e se chybovÃ¡ hlÃ¡Å¡ka a okno se spustÃ­ znovu
 			}
 		}
 	}
 
 	/**
-	 * Odebere otázku ze seznamu otázek
+	 * Odebere otÃ¡zku ze seznamu otÃ¡zek
 	 */
 	private void odeberOtazku(){
-		Otazka otazka = table.getSelectionModel().getSelectedItem();													//najde vybranou otázku
+		Otazka otazka = table.getSelectionModel().getSelectedItem();													//najde vybranou otÃ¡zku
 		if(otazka != null){
-			Alert alert = new Alert(AlertType.CONFIRMATION);															//hláška zda chcete otázku odebrat
-			alert.setTitle("Odebrání otázky");
-			alert.setHeaderText("Skuteènì chcete odebrat otázku " + otazka.getOtazka());
+			Alert alert = new Alert(AlertType.CONFIRMATION);															//hlÃ¡Å¡ka zda chcete otÃ¡zku odebrat
+			alert.setTitle("OdebrÃ¡nÃ­ otÃ¡zky");
+			alert.setHeaderText("SkuteÄnÄ› chcete odebrat otÃ¡zku " + otazka.getOtazka());
 
 			ButtonType buttonTypeAno = new ButtonType("Ano");
 			ButtonType buttonTypeNe = new ButtonType("Ne");
 
 			alert.getButtonTypes().setAll(buttonTypeNe, buttonTypeAno);
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == buttonTypeAno){																			//je-li Ano otázka se odebere z arraylistù otazky a aktualniOtazky
+			if (result.get() == buttonTypeAno){																			//je-li Ano otÃ¡zka se odebere z arraylistÅ¯ otazky a aktualniOtazky
 				otazky.remove(otazka);
 				aktualniOtazky.remove(otazka);
-				updateCenterPane();																						//zaktualizuje centrální panel
+				updateCenterPane();																						//zaktualizuje centrÃ¡lnÃ­ panel
 			}
 		}
 	}
 
 	/**
-	 * Pøidání nové otázky
+	 * PÅ™idÃ¡nÃ­ novÃ© otÃ¡zky
 	 */
 	private void pridejOtazku(){
-		OknoPridejOtazku pridejOtazku = new OknoPridejOtazku(kategorie);												//spustí okno pro zadání údajù k nové otázce
+		OknoPridejOtazku pridejOtazku = new OknoPridejOtazku(kategorie);												//spustÃ­ okno pro zadÃ¡nÃ­ ÃºdajÅ¯ k novÃ© otÃ¡zce
 		pridejOtazku.initModality(Modality.APPLICATION_MODAL);
 		pridejOtazku.showAndWait();
-		if(pridejOtazku.getPridanaOtazka()){																			//jestlie byly zadány údaje, pøejde se k pøidání otázky
+		if(pridejOtazku.getPridanaOtazka()){																			//jestliÅ¾e byly zadÃ¡ny Ãºdaje, pÅ™ejde se k pÅ™idÃ¡nÃ­ otÃ¡zky
 			Otazka novaOtazka = new Otazka(this.getNoveId(otazky, true), pridejOtazku.getPopis(), pridejOtazku.getPocetBodu(), pridejOtazku.getMisto(), pridejOtazku.getIdKategorie());
 			otazky.add(novaOtazka);
 			aktualniOtazky.add(novaOtazka);
@@ -471,15 +495,15 @@ public class HlavniOkno extends Stage{
 	}
 
 	/**
-	 * Generátor nového id otázky nebo id kategorie
-	 * @param seznam seznam údajù
-	 * @param jeOtazka true pokud chci id otázky, jinak false (id kategorie)
-	 * @return nové id
+	 * GenerÃ¡tor novÃ©ho id otÃ¡zky nebo id kategorie
+	 * @param seznam seznam ÃºdajÅ¯
+	 * @param jeOtazka true pokud chci id otÃ¡zky, jinak false (id kategorie)
+	 * @return novÃ© id
 	 */
 	private int getNoveId(ArrayList seznam, Boolean jeOtazka){
 		int noveId = 0;
 
-		for(int i = 0; i < seznam.size(); i++){									//projde všechny poloky seznamu a najde maximální id
+		for(int i = 0; i < seznam.size(); i++){									//projde vÅ¡echny poloÅ¾ky seznamu a najde maximÃ¡lnÃ­ id
 			int id = 0;
 			if(jeOtazka)
 				id = ((Otazka)seznam.get(i)).getId();
@@ -493,13 +517,13 @@ public class HlavniOkno extends Stage{
 	}
 
 	/**
-	 * Uloí data do souborù kategorie.txt a otazky.txt
+	 * UloÅ¾Ã­ data do souborÅ¯ kategorie.txt a otazky.txt
 	 */
 	private void ulozData(){
 		try{
 			BufferedWriter soubor = new BufferedWriter(new FileWriter("data/kategorie.txt"));
 
-			for(int i = 0; i < kategorie.size(); i++){												//projde kategorie a uloí je
+			for(int i = 0; i < kategorie.size(); i++){												//projde kategorie a uloÅ¾Ã­ je
 				if(i != 0) soubor.newLine();
 				Kategorie pomKat = kategorie.get(i);
 				soubor.write(pomKat.getIdKategorie() + " " + pomKat.getNazev().trim());
@@ -509,7 +533,7 @@ public class HlavniOkno extends Stage{
 
 			soubor = new BufferedWriter(new FileWriter("data/otazky.txt"));
 
-			for(int i = 0; i < otazky.size(); i++){													//projde otázky a uloí je
+			for(int i = 0; i < otazky.size(); i++){													//projde otÃ¡zky a uloÅ¾Ã­ je
 				if(i != 0) soubor.newLine();
 				Otazka pomOtazka = otazky.get(i);
 				soubor.write(pomOtazka.getId() + " " + pomOtazka.getPocetBodu() + " " + pomOtazka.getMisto() + " " + pomOtazka.getIdKategorie() + " " + pomOtazka.getOtazka().trim());
