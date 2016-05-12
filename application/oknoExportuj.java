@@ -64,7 +64,7 @@ public class oknoExportuj extends Stage {
 		hlPanel.setCenter(vyber());
 		hlPanel.setBottom(tlacitka());
 
-		Scene scene = new Scene(hlPanel, 600, 400);
+		Scene scene = new Scene(hlPanel, 621, 414);
 		this.setScene(scene);
 		scene.getStylesheets().add
 		 (oknoExportuj.class.getResource("vzhled.css").toExternalForm());
@@ -96,13 +96,8 @@ public class oknoExportuj extends Stage {
 		predmet.setText("Základy softwarového inženýrství"); //defaultní nastavení
 		Label text5 = new Label("Pøedmìt: ");
 		text5.setId("text1");
-		
+
 		datePicker = new DatePicker();
-		 datePicker.setOnAction(new EventHandler() {
-		     public void handle(Event t) {
-		         LocalDate date = datePicker.getValue();
-		     }
-		 });
 		 datePicker.setValue(LocalDate.now());
 		String idTestu = idTestu(); //nacitani jednoznaèného ID Testu
 		Label text3 = new Label("ID testu: " + '\t' + idTestu);
@@ -254,13 +249,13 @@ public class oknoExportuj extends Stage {
 	private MenuButton vyberKat() {
 		MenuButton vyber = new MenuButton("Kategorie"); //ComboBox
 		ArrayList<CheckMenuItem> checkItems = new ArrayList<CheckMenuItem>();
-		
+
 		for(int i = 0; i < kategorie.size(); i++){
 			CheckMenuItem kat = new CheckMenuItem(kategorie.get(i).getNazev());
 			kat.setSelected(true);
 			checkItems.add(kat);
 		}
-		
+
         vyber.getItems().addAll(checkItems);
 
           // spravuje odznaèení a oznaèení kategorií
