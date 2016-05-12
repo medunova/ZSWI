@@ -28,25 +28,25 @@ import javafx.scene.control.Alert.AlertType;
  */
 public class Generovani {
 
-	ArrayList<Otazka> vybraneOtazky = new ArrayList<Otazka>();								//seznam vygenerovanÃ½ch otÃ¡zek
-	ArrayList<Otazka> nevybraneOtazky;														//seznam nevybranÃ½ch otÃ¡zek
+	ArrayList<Otazka> vybraneOtazky = new ArrayList<Otazka>();								//seznam vygenerovanıch otázek
+	ArrayList<Otazka> nevybraneOtazky;														//seznam nevybranıch otázek
 
     /** Cesta a nazev vytvoreneho PDF souboru */
     public static String pdfNazev;
 
     /**
-     * Konstruktor tÅ™Ã­dy pro generovÃ¡nÃ­ a export do pDF
-     * @param otazky seznam vÅ¡ech otÃ¡zek
-     * @param skola nÃ¡zev Å¡koly
-     * @param zkous nÃ¡zev zkouÅ¡ejÃ­cÃ­ho
-     * @param body	true, pokud byl vybrÃ¡n export podle poÄtu bodÅ¯
-     * @param pocet poÄet bodÅ¯ nebo otÃ¡zek
+     * Konstruktor tøídy pro generování a export do pDF
+     * @param otazky seznam všech otázek
+     * @param skola název školy
+     * @param zkous název zkoušejícího
+     * @param body	true, pokud byl vybrán export podle poètu bodù
+     * @param pocet poèet bodù nebo otázek
      * @param idTest id testu
-     * @param datum datum zkouÅ¡ky
+     * @param datum datum zkoušky
      */
 	public Generovani(ArrayList<Otazka> otazky, String idTest, LocalDate datum, String skola, String zkous, String predmet, Boolean body, int pocet) {
 
-		this.pdfNazev = "./"+idTest+".pdf";
+		this.pdfNazev = "testy/"+idTest+".pdf";
 		try {
 			nevybraneOtazky = (ArrayList<Otazka>)otazky.clone();
 			generujOtazky(nevybraneOtazky, body, pocet);
@@ -56,43 +56,43 @@ public class Generovani {
 		catch (DocumentException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Export dat.");
-			alert.setHeaderText("Chyba pÅ™i exportu dat do PDF!");
-			alert.setContentText("NepodaÅ™ilo se vyexportovat data do PDF.");
+			alert.setHeaderText("Chyba pøi exportu dat do PDF!");
+			alert.setContentText("Nepodaøilo se vyexportovat data do PDF.");
 			alert.show();
 		}
 		catch (Exception e){
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Export dat.");
-			alert.setHeaderText("Chyba pÅ™i exportu dat do PDF!");
-			alert.setContentText("NepodaÅ™ilo se vyexportovat data do PDF.");
+			alert.setHeaderText("Chyba pøi exportu dat do PDF!");
+			alert.setContentText("Nepodaøilo se vyexportovat data do PDF.");
 			alert.show();
 		}
 
 	}
 
 	/**
-	 * Metoda pro generovÃ¡nÃ­ nÃ¡hodnÃ½ch otÃ¡zek
-	 * @param otazky celkovÃ½ seznam otÃ¡zek pro nÃ¡hodnÃ½ vÃ½bÄ›r
-	 * @param body true pokud se test generuje podle poÄtu bodÅ¯, jinak false
-	 * @param pocet poÄet bodÅ¯ nebo otÃ¡zek
+	 * Metoda pro generování náhodnıch otázek
+	 * @param otazky celkovı seznam otázek pro náhodnı vıbìr
+	 * @param body true pokud se test generuje podle poètu bodù, jinak false
+	 * @param pocet poèet bodù nebo otázek
 	 */
 	private void generujOtazky(ArrayList<Otazka> otazky, Boolean body, int pocet){
 		Random rnd = new Random();
-		if(body) {																			//je-li true, bylo vybrÃ¡no generovÃ¡nÃ­ podle poÄtu bodÅ¯
+		if(body) {																			//je-li true, bylo vybráno generování podle poètu bodù
 			int aktualniPocet = 0;
 			int pocetOpakovani = 0;
-			while(aktualniPocet != pocet){													//cyklus bude probÃ­hat dokuk poÄet bodÅ¯ nÃ¡hodnÄ› vygenerovanÃ½ch otÃ¡zek nebude poÅ¾adovanÃ½ poÄet
-				int nahodneCislo = rnd.nextInt(nevybraneOtazky.size());						//vygeneruje se nÃ¡hodnÃ© ÄÃ­slo (max je poÄet nevybranÃ½ch otÃ¡zek)
-				Otazka otazka = nevybraneOtazky.get(nahodneCislo);							//ze seznamu nevybranÃ½ch otÃ¡zek se vybere otÃ¡zka pod nÃ¡hodnÄ› vygenerovanÃ½m indexem
-				if((aktualniPocet + otazka.getPocetBodu()) <= pocet){						//aktuÃ¡lnÃ­ poÄet bodÅ¯ se seÄte s poÄtem bodÅ¯ novÃ© otÃ¡zky a porovnÃ¡ se cÃ­lovÃ½m poÄtem bodÅ¯
-					vybraneOtazky.add(otazka);												//pokud poÄet bodÅ¯ nepÅ™esÃ¡hne cÃ­lovÃ½ poÄet, pÅ™idÃ¡ se otÃ¡zka do vybranÃ½ch, odebere se z nevybranÃ½ch a zaktualizuje se aktuÃ¡lnÃ­ poÄet bodÅ¯
+			while(aktualniPocet != pocet){													//cyklus bude probíhat dokuk poèet bodù náhodnì vygenerovanıch otázek nebude poadovanı poèet
+				int nahodneCislo = rnd.nextInt(nevybraneOtazky.size());						//vygeneruje se náhodné èíslo (max je poèet nevybranıch otázek)
+				Otazka otazka = nevybraneOtazky.get(nahodneCislo);							//ze seznamu nevybranıch otázek se vybere otázka pod náhodnì vygenerovanım indexem
+				if((aktualniPocet + otazka.getPocetBodu()) <= pocet){						//aktuální poèet bodù se seète s poètem bodù nové otázky a porovná se cílovım poètem bodù
+					vybraneOtazky.add(otazka);												//pokud poèet bodù nepøesáhne cílovı poèet, pøidá se otázka do vybranıch, odebere se z nevybranıch a zaktualizuje se aktuální poèet bodù
 					nevybraneOtazky.remove(otazka);
 					aktualniPocet += otazka.getPocetBodu();
 				}
-				pocetOpakovani++;															/*poÄet opakovÃ¡nÃ­ se musÃ­ hlÃ­dat z dÅ¯vodu moÅ¾nÃ©ho zacyklenÃ­
-																							  bude-li napÅ™. poÄet aktuÃ¡lnÃ­ch bodÅ¯ 49 a uÅ¾ nebude Å¾Ã¡dnÃ¡ otÃ¡zka s 1 bodem pro cÃ­lovÃ½ch 50 bodÅ¯
-																							  pobÄ›Å¾Ã­ cyklus poÅ™Ã¡d dokola - pÅ™i 150 opakovÃ¡nÃ­ se vybranÃ© otÃ¡zky vymaÅ¾ou a do nevybranÃ½ch se doplnÃ­
-																							  vÅ¡echny otÃ¡zky a nÃ¡hodnÃ© generovÃ¡nÃ­ bude probÃ­hat od zaÄtku
+				pocetOpakovani++;															/*poèet opakování se musí hlídat z dùvodu moného zacyklení
+																							  bude-li napø. poèet aktuálních bodù 49 a u nebude ádná otázka s 1 bodem pro cílovıch 50 bodù
+																							  pobìí cyklus poøád dokola - pøi 150 opakování se vybrané otázky vymaou a do nevybranıch se doplní
+																							  všechny otázky a náhodné generování bude probíhat od zaètku
 																							*/
 				if(pocetOpakovani == 150){
 					vybraneOtazky.clear();
@@ -103,7 +103,7 @@ public class Generovani {
 			}
 		}
 		else{
-			for(int i = 0; i < pocet; i++){													//generovÃ¡nÃ­ otÃ¡zek podle nastavenÃ©ho poÄtu otÃ¡zek
+			for(int i = 0; i < pocet; i++){													//generování otázek podle nastaveného poètu otázek
 				int nahodneCislo = rnd.nextInt(nevybraneOtazky.size());
 				Otazka otazka = nevybraneOtazky.get(nahodneCislo);
 				vybraneOtazky.add(otazka);
@@ -141,20 +141,20 @@ public class Generovani {
         Chunk rozmisteni = new Chunk(new VerticalPositionMark());
         Paragraph hlavicka = new Paragraph(skola,hlavickaFont);
         hlavicka.add(new Chunk(rozmisteni));
-        hlavicka.add("PÅ™Ã­jmenÃ­ a jmÃ©no: ....................");
+        hlavicka.add("Pøíjmení a jméno: ....................");
         document.add(hlavicka);
         hlavicka.clear();
 
         hlavicka.add(predmet);
         hlavicka.add(new Chunk(rozmisteni));
-        hlavicka.add("OsobnÃ­ ÄÃ­slo: ....................");
+        hlavicka.add("Osobní èíslo: ....................");
         document.add(hlavicka);
         hlavicka.clear();
 
 
-        hlavicka.add("ZkouÅ¡ejÃ­cÃ­: "+zkousejici);
+        hlavicka.add("Zkoušející: "+zkousejici);
         hlavicka.add(new Chunk(rozmisteni));
-        hlavicka.add("TÃ½m: ....................");
+        hlavicka.add("Tım: ....................");
         document.add(hlavicka);	//zapise do souboru
 
         hlavicka.clear();
@@ -169,30 +169,30 @@ public class Generovani {
 	}
 
 	/**
-	 * Metoda seÅ™adÃ­ a pÅ™idÃ¡ do exportu jednotlivÃ© otÃ¡zky
-	 * @param document soubor kterÃ½ se exportuje
-	 * @param otazkyFont font otÃ¡zek
+	 * Metoda seøadí a pøidá do exportu jednotlivé otázky
+	 * @param document soubor kterı se exportuje
+	 * @param otazkyFont font otázek
 	 */
 	private void tiskOtazek(Document document, PdfWriter writer, Font otazkyFont) throws DocumentException{
-		int prostor = 37;																							//poÄet Å™Ã¡dkÅ¯ na prvnÃ­ strÃ¡nce pro otÃ¡zky
-		boolean nalezeno, dalsiStranka = false;																					//nalezena otÃ¡zka pro vloÅ¾enÃ­ na strÃ¡nce
+		int prostor = 37;																							//poèet øádkù na první stránce pro otázky
+		boolean nalezeno, dalsiStranka = false;																					//nalezena otázka pro vloení na stránce
 		int cislo = 0;
 		Comparator comp = Comparator.comparing(Otazka::getMisto);
-		Collections.sort(vybraneOtazky, Collections.reverseOrder(comp));											//seÅ™adÃ­ otÃ¡zky v seznamu od nejvÄ›tÅ¡Ã­ velikosti mÃ­sta
+		Collections.sort(vybraneOtazky, Collections.reverseOrder(comp));											//seøadí otázky v seznamu od nejvìtší velikosti místa
 
-		while(vybraneOtazky.size() > 0){																			//cyklus pobÄ›Å¾Ã­ dokud nejsou na strÃ¡nce vÅ¡echny vygenerovanÃ© otÃ¡zky
+		while(vybraneOtazky.size() > 0){																			//cyklus pobìí dokud nejsou na stránce všechny vygenerované otázky
 			do{
 				nalezeno = false;
 				dalsiStranka = false;
-				for(int i = 0; i < vybraneOtazky.size(); i++){														//cyklus projde vÅ¡echny otÃ¡zky dokud nenarazÃ­ na tu kterÃ¡ se na strÃ¡nku vejde
+				for(int i = 0; i < vybraneOtazky.size(); i++){														//cyklus projde všechny otázky dokud nenarazí na tu která se na stránku vejde
 					Otazka otazka = vybraneOtazky.get(i);
-					int pocetRadku = otazka.getPocetRadkuText() + otazka.getPocetRadkuMisto();						//nastavÃ­ se poÄet nutnÃ½ch Å™Ã¡dkÅ¯ pro otÃ¡zku
-					if((prostor - pocetRadku) >= 0){																//vejde-li se otÃ¡zka do zbÃ½vajÃ­cÃ­ho prostoru, doplnÃ­ se do dokumentu
-						Paragraph otazkaTisk = new Paragraph(++cislo + "." + otazka.getOtazka(), otazkyFont);
+					int pocetRadku = otazka.getPocetRadkuText() + otazka.getPocetRadkuMisto();						//nastaví se poèet nutnıch øádkù pro otázku
+					if((prostor - pocetRadku) >= 0){																//vejde-li se otázka do zbıvajícího prostoru, doplní se do dokumentu
+						Paragraph otazkaTisk = new Paragraph(++cislo + "." + otazka.getOtazka()+"("+otazka.getPocetBodu()+"b.)", otazkyFont);
 						document.add(otazkaTisk);
 						prostor -= pocetRadku;
 						int cisloStranky = writer.getPageNumber();
-						for(int j = 0; j < otazka.getPocetRadkuMisto(); j++){										//nastavÃ­ volnÃ© Å™Ã¡dky pro odpovÄ›Ä
+						for(int j = 0; j < otazka.getPocetRadkuMisto(); j++){										//nastaví volné øádky pro odpovìï
 					        if(cisloStranky == writer.getPageNumber()){
 					        	document.add(new Paragraph(" "));
 					        }
@@ -202,19 +202,19 @@ public class Generovani {
 					        }
 						}
 
-						vybraneOtazky.remove(otazka);																//otÃ¡zka se odebere ze seznamu
+						vybraneOtazky.remove(otazka);																//otázka se odebere ze seznamu
 						nalezeno = true;
 						break;
 					}
 					if(nalezeno) break;
 				}
 			}
-			while (nalezeno && !dalsiStranka);																		/*pokud nebyla otÃ¡zka nalezena, znamenÃ¡ to buÄ Å¾e je seznam prÃ¡zdnÃ½
-																													  nebo se na strÃ¡nku uÅ¾ Å¾Ã¡dnÃ¡ z vygenerovanÃ½ch otÃ¡zek nevejde
+			while (nalezeno && !dalsiStranka);																		/*pokud nebyla otázka nalezena, znamená to buï e je seznam prázdnı
+																													  nebo se na stránku u ádná z vygenerovanıch otázek nevejde
 																													 */
 			if(!dalsiStranka)
 				document.newPage();
-			prostor = 43;																							//novÃ¡ velikost prostoru pro strÃ¡nky bez hlaviÄky
+			prostor = 43;																							//nová velikost prostoru pro stránky bez hlavièky
 		}
 	}
 
