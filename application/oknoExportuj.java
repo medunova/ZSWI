@@ -250,26 +250,6 @@ public class oknoExportuj extends Stage {
 			checkItems.add(kat);
 		}
 		
-		/*CheckMenuItem kat1; //Jednotlivé chooseBoxy
-		CheckMenuItem kat2;
-		CheckMenuItem kat3;
-		CheckMenuItem kat4;
-		CheckMenuItem kat5;
-		CheckMenuItem kat6;
-        List<CheckMenuItem> checkItems = Arrays.asList(
-        	kat1 = new CheckMenuItem("Kategorie 1"),
-            kat2 = new CheckMenuItem("Kategorie 2"),
-            kat3 = new CheckMenuItem("Kategorie 3"),
-            kat4 = new CheckMenuItem("Kategorie 4"),
-            kat5 = new CheckMenuItem("Kategorie 5"),
-            kat6 = new CheckMenuItem("Kategorie 6")
-        );
-        kat1.setSelected(true); //defaultně jsou vybrané všechny katagorie
-        kat2.setSelected(true);
-        kat3.setSelected(true);
-        kat4.setSelected(true);
-        kat5.setSelected(true);
-        kat6.setSelected(true);*/
         vyber.getItems().addAll(checkItems);
 
           // spravuje odznačení a označení kategorií
