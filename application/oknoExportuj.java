@@ -1,7 +1,10 @@
 import java.io.File;
 import java.io.FileWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -92,12 +95,17 @@ public class oknoExportuj extends Stage {
 		Label text5 = new Label("Pøedmìt: ");
 		text5.setId("text1");
 
+		DateFormat dateFormat = new SimpleDateFormat("dd. MM. yyyy"); // formát data
+		Date date = new Date();
 		String idTestu = idTestu(); //nacitani jednoznaèného ID Testu
 		Label text3 = new Label("ID testu: " + '\t' + idTestu);
 		text3.setId("text1");
 		datum = new TextField();
 		Label text4 = new Label('\t' + "Datum testu: ");
 		text4.setId("text1");
+		datum.setText(dateFormat.format(date));			//defaultní nastavení
+
+
 
 		choices = vyberKat(); // výbìr kategorii
 
@@ -217,11 +225,11 @@ public class oknoExportuj extends Stage {
 		String s;
 		int p = 0;
 		try {
-			sc = new Scanner(new File("data/IDTESTU.txt"));
+			sc = new Scanner(new File("IDTESTU.txt"));
 			s = sc.next();
 			p = Integer.parseInt(s) + 1;
 
-			writer = new FileWriter("data/IDTESTU.txt");
+			writer = new FileWriter("IDTESTU.txt");
 			writer.write(Integer.toString(p));
 			writer.close();
 		}
